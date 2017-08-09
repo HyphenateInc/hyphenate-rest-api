@@ -938,7 +938,7 @@ paths:
       tags:
         - Chat History
       summary: Get Message History
-      description: ''
+      description: 'Query message history base on hour block in UTC time.'
       schemes:
         - https
       consumes:
@@ -969,7 +969,7 @@ paths:
           format: ''
         - name: time
           in: path
-          description: 'query message history base on hour block in UTC time. 2017071907 as query to get messages from 7:00 to 8:00 am on 07/19/2017, including 7:00am'
+          description: '10 digits format (YYYYMMDDHH) in UTC time. Ex. `2017071907` as query to get messages from 7:00 to 8:00 am on 07/19/2017, including 7:00am'
           required: true
           type: integer
           default: 2017071907
@@ -1707,7 +1707,7 @@ paths:
           description: The user who is requesting blacklist
           required: true
           type: string
-          default: '${username}'
+          default: 'apple'
           format: ''
       responses:
         '401':
@@ -1754,14 +1754,14 @@ paths:
           description: The user who initiated the blocking
           required: true
           type: string
-          default: '${username}'
+          default: 'apple'
           format: ''
         - in: body
           name: Usernames
           description: 'Users to be blocked. Use '','' to separate the Usernames'
           required: true
           schema:
-            $ref: '#/definitions/Usernames'
+            $ref: '#/definitions/BodyUsernames'
       responses:
         '400':
           description: Blocked user cannot be found
@@ -1817,7 +1817,7 @@ paths:
           description: ''
           required: true
           type: string
-          default: '${username}'
+          default: 'apple'
           format: ''
       responses:
         '401':
@@ -2584,8 +2584,10 @@ definitions:
     properties:
       username:
         type: string
+        example: apple
       password:
         type: string
+        example: 123456
   NewPassword:
     type: object
     properties:
@@ -2596,14 +2598,21 @@ definitions:
     properties:
       nickname:
         type: string
+  BodyUsernames:
+    type: object
+    properties:
+      usernames:
+        $ref: '#/definitions/Usernames'
   Usernames:
     type: array
     items:
-      type: string
-      example: [orange, banana]
+      $ref: '#/definitions/Username1'
   Username1:
     type: string
     example: apple
+  Username2:
+    type: string
+    example: orange
   Msg:
     type: object
     properties:
