@@ -1465,7 +1465,7 @@ paths:
           format: ''
         - in: body
           name: body
-          description: 'Message types: Text, image, audio message, video, command, etc. Please refer to the Hyphenate docs for further details about message body. https://docs.hyphenate.io/docs/post-messages'
+          description: 'Message types: Text, image, audio message, video, command, etc. Please refer to the Hyphenate docs for further details about message body. https://docs.hyphenate.io/docs/messages'
           required: true
           schema:
             $ref: '#/definitions/Msg'
@@ -1550,14 +1550,14 @@ paths:
           format: ''
         - name: limit
           in: query
-          description: 'Get specified number of user by setting the batch limit with parameter "limit". Otherwise the API returns the 10 most recent created users by default. '
+          description: 'Get specified number of user by setting the batch limit with parameter `limit`. Otherwise the API will generate 10 recently created users by default. '
           required: false
           type: string
           default: '3'
           format: ''
         - name: cursor
           in: query
-          description: 'Pagination: If the query results more objects than value of limit, then the response will carry an extra attribute “cursor”, the value points to the next page. There is No cursor on the last page or if the returning objects is less than batch limit value.'
+          description: '**Pagination**: If the query results more objects than value of limit, then the response will carry an extra attribute “cursor”, the value points to the next page. There is No cursor on the last page or if the returning objects is less than batch limit value.'
           required: false
           type: string
           default: LTgzNDAxMjM3OTpreS0yeXBSSkVlYWZZODl3bXppMTFn"
@@ -1599,7 +1599,7 @@ paths:
         - name: Authorization
           in: header
           description: 'Bearer ${token}'
-          required: false
+          required: true
           type: string
           default: Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4
           format: ''
@@ -1620,7 +1620,7 @@ paths:
       tags:
         - Users
       summary: Delete Users in Batch
-      description: 'Delete total number of N user accounts in batch. Recommend set N range 100~500 at a time to ensure the performance. Cannot specified user account in deletion, check the response to see which user accounts are deleted.'
+      description: 'Delete total number of N user accounts in batch. Recommend set N range **100~500** at a time to ensure the performance. Cannot specified user account in deletion, check the response to see which user accounts are deleted.'
       schemes:
         - https
       consumes:
@@ -1761,7 +1761,10 @@ paths:
           description: 'Users to be blocked. Use '','' to separate the Usernames'
           required: true
           schema:
-            $ref: '#/definitions/BodyUsernames'
+            $ref: '#/definitions/Usernames'
+            usernames:
+              - apple
+              - orange
       responses:
         '400':
           description: Blocked user cannot be found
@@ -2584,7 +2587,7 @@ definitions:
     properties:
       username:
         type: string
-        example: apple
+        example: orange
       password:
         type: string
         example: 123456
@@ -2593,16 +2596,13 @@ definitions:
     properties:
       newpassword:
         type: string
+        example: 123456
   Nickname:
     type: object
     properties:
       nickname:
         type: string
-  BodyUsernames:
-    type: object
-    properties:
-      usernames:
-        $ref: '#/definitions/Usernames'
+        example: apple-push
   Usernames:
     type: array
     items:
