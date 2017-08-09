@@ -1761,10 +1761,7 @@ paths:
           description: 'Users to be blocked. Use '','' to separate the Usernames'
           required: true
           schema:
-            $ref: '#/definitions/Usernames'
-            usernames:
-              - apple
-              - orange
+            $ref: '#/definitions/BodyUsernames'
       responses:
         '400':
           description: Blocked user cannot be found
@@ -2603,6 +2600,11 @@ definitions:
       nickname:
         type: string
         example: apple-push
+  BodyUsernames:
+    type: object
+    properties:
+      usernames:
+        $ref: '#/definitions/Usernames'
   Usernames:
     type: array
     items:
