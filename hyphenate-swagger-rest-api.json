@@ -89,7 +89,7 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -113,7 +113,7 @@
             ],
             "responses":{
                "401":{
-                  "description":"unauthorized [without token, token error, token expired]"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "500":{
                   "description":"Various of 5xx. see [HTTP Error Codes](https://docs.hyphenate.io/docs/error-codes)"
@@ -162,7 +162,7 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -195,7 +195,7 @@
             ],
             "responses":{
                "401":{
-                  "description":"unauthorized [without token, token error, token expired]"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "500":{
                   "description":"Various of 5xx. see [HTTP Error Codes](https://docs.hyphenate.io/docs/error-codes)"
@@ -244,13 +244,13 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                }
             ],
             "responses":{
                "401":{
-                  "description":"unauthorized [without token, token error, token expired]"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "500":{
                   "description":"Various of 5xx. see [HTTP Error Codes](https://docs.hyphenate.io/docs/error-codes)"
@@ -297,7 +297,7 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -315,7 +315,7 @@
                   "description":"The owner doesn't exist"
                },
                "401":{
-                  "description":"unauthorized [without token, token error, token expired]"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "500":{
                   "description":"Various of 5xx. see [HTTP Error Codes](https://docs.hyphenate.io/docs/error-codes)"
@@ -364,7 +364,7 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -379,7 +379,7 @@
             ],
             "responses":{
                "401":{
-                  "description":"unauthorized [without token, token error, token expired]"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "404":{
                   "description":"The group ID cannot be found"
@@ -431,7 +431,7 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -455,7 +455,7 @@
             ],
             "responses":{
                "401":{
-                  "description":"unauthorized [without token, token error, token expired]"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "500":{
                   "description":"Various of 5xx. see [HTTP Error Codes](https://docs.hyphenate.io/docs/error-codes)"
@@ -502,7 +502,7 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -517,7 +517,7 @@
             ],
             "responses":{
                "401":{
-                  "description":"unauthorized [without token, token error, token expired]"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "500":{
                   "description":"Various of 5xx. see [HTTP Error Codes](https://docs.hyphenate.io/docs/error-codes)"
@@ -566,7 +566,7 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -581,7 +581,7 @@
             ],
             "responses":{
                "401":{
-                  "description":"Unauthorized: missing token, token error, token expired"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "404":{
                   "description":"Group ID cannot be found"
@@ -631,7 +631,7 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -655,7 +655,7 @@
             ],
             "responses":{
                "401":{
-                  "description":"Unauthorized: missing token, token error, token expired"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "404":{
                   "description":"Group ID cannot be found"
@@ -707,7 +707,7 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -731,7 +731,7 @@
             ],
             "responses":{
                "401":{
-                  "description":"Unauthorized: missing token, token error, token expired"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "404":{
                   "description":"Group ID cannot be found"
@@ -783,7 +783,7 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -798,10 +798,10 @@
                {
                   "name":"username",
                   "in":"path",
-                  "description":"",
+                  "description":"user to be blocked",
                   "required":true,
                   "type":"string",
-                  "default":"${username}",
+                  "default":"orange",
                   "format":""
                }
             ],
@@ -810,7 +810,7 @@
                   "description":"The user dosen't exist"
                },
                "401":{
-                  "description":"Unauthorized: missing token, token error, token expired"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "404":{
                   "description":"Group ID cannot be found"
@@ -860,7 +860,7 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -875,10 +875,10 @@
                {
                   "name":"username",
                   "in":"path",
-                  "description":"",
+                  "description":"user to be unblocked",
                   "required":true,
                   "type":"string",
-                  "default":"${username}",
+                  "default":"orange",
                   "format":""
                }
             ],
@@ -887,7 +887,7 @@
                   "description":"The user dosen't exist"
                },
                "401":{
-                  "description":"Unauthorized: missing token, token error, token expired"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "404":{
                   "description":"Group ID cannot be found"
@@ -939,7 +939,7 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -954,7 +954,7 @@
             ],
             "responses":{
                "401":{
-                  "description":"unauthorized [without token, token error, token expired]"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "404":{
                   "description":"The group ID cannot be found"
@@ -969,7 +969,7 @@
                "Groups"
             ],
             "summary":"Add Multiple Members to Group",
-            "description":"Warning: Add max 60 members once at a time. ",
+            "description":"Warning: Add **Max 60 members** once at a time.",
             "schemes":[
                "https"
             ],
@@ -1004,7 +1004,7 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -1031,7 +1031,7 @@
                   "description":"User(s) cannot be found"
                },
                "401":{
-                  "description":"unauthorized [without token, token error, token expired]"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "404":{
                   "description":"The group ID cannot be found"
@@ -1047,7 +1047,7 @@
             "tags":[
                "Groups"
             ],
-            "summary":"Remove multiple Member from the Group",
+            "summary":"Remove multiple Members from the Group",
             "description":"",
             "schemes":[
                "https"
@@ -1080,10 +1080,10 @@
                {
                   "name":"Authorization",
                   "in":"header",
-                  "description":"Bearer ${token",
+                  "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -1107,7 +1107,7 @@
             ],
             "responses":{
                "401":{
-                  "description":"Unauthorized: missing token, token error, token expired"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "500":{
                   "description":"Various of 5xx. see [HTTP Error Codes](https://docs.hyphenate.io/docs/error-codes)"
@@ -1156,7 +1156,7 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -1174,7 +1174,7 @@
                   "description":"",
                   "required":true,
                   "type":"string",
-                  "default":"${username}",
+                  "default":"orange",
                   "format":""
                }
             ],
@@ -1183,7 +1183,7 @@
                   "description":"The user doesn't exist"
                },
                "401":{
-                  "description":"unauthorized [without token, token error, token expired]"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "404":{
                   "description":"The group ID cannot be found"
@@ -1233,7 +1233,7 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -1251,7 +1251,7 @@
                   "description":"",
                   "required":true,
                   "type":"string",
-                  "default":"${username}",
+                  "default":"orange",
                   "format":""
                }
             ],
@@ -1260,7 +1260,7 @@
                   "description":"The user dosen't exist"
                },
                "401":{
-                  "description":"unauthorized [without token, token error, token expired]"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "404":{
                   "description":"The group ID does not exist"
@@ -1312,7 +1312,7 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -1329,7 +1329,7 @@
                   "description":"Bad request"
                },
                "401":{
-                  "description":"unauthorized [without token, token error, token expired]"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "429":{
                   "description":"Request beyond given request rate limit."
@@ -1381,13 +1381,13 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                }
             ],
             "responses":{
                "401":{
-                  "description":"unauthorized [without token, token error, token expired]"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "500":{
                   "description":"Various of 5xx. see [HTTP Error Codes](https://docs.hyphenate.io/docs/error-codes)"
@@ -1434,7 +1434,7 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -1449,7 +1449,7 @@
             ],
             "responses":{
                "401":{
-                  "description":"unauthorized [without token, token error, token expired]"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "500":{
                   "description":"Various of 5xx. see [HTTP Error Codes](https://docs.hyphenate.io/docs/error-codes)"
@@ -1498,7 +1498,7 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -1513,7 +1513,7 @@
             ],
             "responses":{
                "401":{
-                  "description":"unauthorized [without token, token error, token expired]"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "404":{
                   "description":"Chat room cannot be found"
@@ -1563,7 +1563,7 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -1587,7 +1587,7 @@
             ],
             "responses":{
                "401":{
-                  "description":"unauthorized [without token, token error, token expired]"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "500":{
                   "description":"Various of 5xx. see [HTTP Error Codes](https://docs.hyphenate.io/docs/error-codes)"
@@ -1634,7 +1634,7 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -1649,7 +1649,7 @@
             ],
             "responses":{
                "401":{
-                  "description":"unauthorized [without token, token error, token expired]"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "500":{
                   "description":"Various of 5xx. see [HTTP Error Codes](https://docs.hyphenate.io/docs/error-codes)"
@@ -1698,7 +1698,7 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -1725,7 +1725,7 @@
                   "description":"Chat room or user cannot be found"
                },
                "401":{
-                  "description":"Unauthorized: missing token, token error, token expired"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "500":{
                   "description":"Various of 5xx. see [HTTP Error Codes](https://docs.hyphenate.io/docs/error-codes)"
@@ -1774,7 +1774,7 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -1801,7 +1801,7 @@
                   "description":"The user cannot be found"
                },
                "401":{
-                  "description":"Unauthorized: missing token, token error, token expired"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "500":{
                   "description":"Various of 5xx. see [HTTP Error Codes](https://docs.hyphenate.io/docs/error-codes)"
@@ -1850,7 +1850,7 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -1868,7 +1868,7 @@
                   "description":"",
                   "required":true,
                   "type":"string",
-                  "default":"${username}",
+                  "default":"orange",
                   "format":""
                }
             ],
@@ -1877,7 +1877,7 @@
                   "description":"The user cannot be found"
                },
                "401":{
-                  "description":"Unauthorized: missing token, token error, token expired"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "500":{
                   "description":"Various of 5xx. see [HTTP Error Codes](https://docs.hyphenate.io/docs/error-codes)"
@@ -1924,7 +1924,7 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -1942,7 +1942,7 @@
                   "description":"",
                   "required":true,
                   "type":"string",
-                  "default":"${username}",
+                  "default":"orange",
                   "format":""
                }
             ],
@@ -1951,7 +1951,7 @@
                   "description":"The user cannot be found"
                },
                "401":{
-                  "description":"Unauthorized: missing token, token error, token expired"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "500":{
                   "description":"Various of 5xx. see [HTTP Error Codes](https://docs.hyphenate.io/docs/error-codes)"
@@ -2000,13 +2000,13 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
                   "in":"body",
                   "name":"body",
-                  "description":"Message types: Text, image, audio message, video, command, etc. Please refer to the Hyphenate docs for further details about message body. https://docs.hyphenate.io/docs/messages",
+                  "description":"Message types: Text, image, audio message, video, command, etc. Please refer to the Hyphenate docs for further details about message body. https://docs.hyphenate.io/docs/post-messages",
                   "required":true,
                   "schema":{
                      "$ref":"#/definitions/Msg"
@@ -2018,7 +2018,7 @@
                   "description":"Incorrect body structure"
                },
                "401":{
-                  "description":"unauthorized [without token, token error, token expired]"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "500":{
                   "description":"Various of 5xx. see [HTTP Error Codes](https://docs.hyphenate.io/docs/error-codes)"
@@ -2122,13 +2122,13 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
                   "name":"limit",
                   "in":"query",
-                  "description":"Get specified number of user by setting the batch limit with parameter `limit`. Otherwise the API will generate 10 recently created users by default. ",
+                  "description":"Get specified number of user by setting the batch limit with parameter \"limit\". Otherwise the API returns the 10 most recent created users by default. ",
                   "required":false,
                   "type":"string",
                   "default":"3",
@@ -2191,9 +2191,9 @@
                   "name":"Authorization",
                   "in":"header",
                   "description":"Bearer ${token}",
-                  "required":true,
+                  "required":false,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -2211,7 +2211,7 @@
                   "description":"User(s) already exists. The username or password is empty or illegal"
                },
                "401":{
-                  "description":"Unauthorized: missing token, token error, token expired"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "500":{
                   "description":"Various of 5xx. see [HTTP Error Codes](https://docs.hyphenate.io/docs/error-codes)"
@@ -2223,7 +2223,7 @@
                "Users"
             ],
             "summary":"Delete Users in Batch",
-            "description":"Delete total number of N user accounts in batch. Recommend set N range **100~500** at a time to ensure the performance. Cannot specified user account in deletion, check the response to see which user accounts are deleted.",
+            "description":"Delete total number of N user accounts in batch. Recommend set N range 100~500 at a time to ensure the performance. Cannot specified user account in deletion, check the response to see which user accounts are deleted.",
             "schemes":[
                "https"
             ],
@@ -2258,7 +2258,7 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -2282,7 +2282,7 @@
             ],
             "responses":{
                "401":{
-                  "description":"Unauthorized: missing token, token error, token expired"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "500":{
                   "description":"Various of 5xx. see [HTTP Error Codes](https://docs.hyphenate.io/docs/error-codes)"
@@ -2331,7 +2331,7 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -2346,7 +2346,7 @@
             ],
             "responses":{
                "401":{
-                  "description":"Unauthorized: missing token, token error, token expired"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "404":{
                   "description":"User or blacklist cannot be found"
@@ -2396,7 +2396,7 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -2423,7 +2423,7 @@
                   "description":"Blocked user cannot be found"
                },
                "401":{
-                  "description":"Unauthorized: missing token, token error, token expired"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "404":{
                   "description":"User cannot be found"
@@ -2475,7 +2475,7 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -2484,7 +2484,7 @@
                   "description":"",
                   "required":true,
                   "type":"string",
-                  "default":"${username}",
+                  "default":"apple",
                   "format":""
                },
                {
@@ -2493,13 +2493,13 @@
                   "description":"",
                   "required":true,
                   "type":"string",
-                  "default":"apple",
+                  "default":"orange",
                   "format":""
                }
             ],
             "responses":{
                "401":{
-                  "description":"Unauthorized: missing token, token error, token expired"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "404":{
                   "description":"User cannot be found"
@@ -2551,7 +2551,7 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -2560,13 +2560,13 @@
                   "description":"The user who is requesting contact list",
                   "required":true,
                   "type":"string",
-                  "default":"${username}",
+                  "default":"apple",
                   "format":""
                }
             ],
             "responses":{
                "401":{
-                  "description":"Unauthorized: missing token, token error, token expired"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "404":{
                   "description":"User or the list of contact cannot be found"
@@ -2618,7 +2618,7 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -2627,7 +2627,7 @@
                   "description":"user",
                   "required":true,
                   "type":"string",
-                  "default":"${username}",
+                  "default":"apple",
                   "format":""
                },
                {
@@ -2636,13 +2636,13 @@
                   "description":"contact to be added",
                   "required":true,
                   "type":"string",
-                  "default":"${username}",
+                  "default":"orange",
                   "format":""
                }
             ],
             "responses":{
                "401":{
-                  "description":"Unauthorized: missing token, token error, token expired"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "404":{
                   "description":"User or contact to be added cannot be found"
@@ -2692,7 +2692,7 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -2701,7 +2701,7 @@
                   "description":"user",
                   "required":true,
                   "type":"string",
-                  "default":"${username}",
+                  "default":"apple",
                   "format":""
                },
                {
@@ -2710,13 +2710,13 @@
                   "description":"contact to be removed",
                   "required":true,
                   "type":"string",
-                  "default":"${username}",
+                  "default":"orange",
                   "format":""
                }
             ],
             "responses":{
                "401":{
-                  "description":"Unauthorized: missing token, token error, token expired"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "404":{
                   "description":"User or friend to be removed cannot be found"
@@ -2768,7 +2768,7 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -2777,13 +2777,13 @@
                   "description":"",
                   "required":true,
                   "type":"string",
-                  "default":"${username}",
+                  "default":"apple",
                   "format":""
                }
             ],
             "responses":{
                "401":{
-                  "description":"Unauthorized: missing token, token error, token expired"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "404":{
                   "description":"User cannot be found"
@@ -2835,7 +2835,7 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -2844,13 +2844,13 @@
                   "description":"",
                   "required":true,
                   "type":"string",
-                  "default":"${username}",
+                  "default":"apple",
                   "format":""
                }
             ],
             "responses":{
                "401":{
-                  "description":"Unauthorized: missing token, token error, token expired"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "404":{
                   "description":"User cannot be found"
@@ -2900,7 +2900,7 @@
                   "description":"Bearer ${token}",
                   "required":false,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -2909,7 +2909,7 @@
                   "description":"",
                   "required":true,
                   "type":"string",
-                  "default":"${username}",
+                  "default":"apple",
                   "format":""
                },
                {
@@ -2927,7 +2927,7 @@
                   "description":"User cannot be found"
                },
                "401":{
-                  "description":"Unauthorized: missing token, token error, token expired"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "500":{
                   "description":"Various of 5xx. see [HTTP Error Codes](https://docs.hyphenate.io/docs/error-codes)"
@@ -2974,7 +2974,7 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -2983,13 +2983,13 @@
                   "description":"user to be deleted",
                   "required":true,
                   "type":"string",
-                  "default":"${username}",
+                  "default":"apple",
                   "format":""
                }
             ],
             "responses":{
                "401":{
-                  "description":"Unauthorized: missing token, token error, token expired"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "404":{
                   "description":"User cannot be found"
@@ -3006,7 +3006,7 @@
                "Users"
             ],
             "summary":"Activate User Account",
-            "description":"Activate a deactivated user account. ",
+            "description":"Activate a deactivated user account.",
             "schemes":[
                "https"
             ],
@@ -3041,7 +3041,7 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -3050,7 +3050,7 @@
                   "description":"",
                   "required":true,
                   "type":"string",
-                  "default":"${username}",
+                  "default":"apple",
                   "format":""
                }
             ],
@@ -3059,7 +3059,7 @@
                   "description":"User cannot be found"
                },
                "401":{
-                  "description":"Unauthorized: missing token, token error, token expired"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "500":{
                   "description":"Various of 5xx. see [HTTP Error Codes](https://docs.hyphenate.io/docs/error-codes)"
@@ -3108,7 +3108,7 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -3117,7 +3117,7 @@
                   "description":"",
                   "required":true,
                   "type":"string",
-                  "default":"${username}",
+                  "default":"apple",
                   "format":""
                }
             ],
@@ -3126,7 +3126,7 @@
                   "description":"User cannot be found"
                },
                "401":{
-                  "description":"Unauthorized: missing token, token error, token expired"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "500":{
                   "description":"Various of 5xx. see [HTTP Error Codes](https://docs.hyphenate.io/docs/error-codes)"
@@ -3175,7 +3175,7 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -3184,13 +3184,13 @@
                   "description":"",
                   "required":true,
                   "type":"string",
-                  "default":"${username}",
+                  "default":"apple",
                   "format":""
                }
             ],
             "responses":{
                "401":{
-                  "description":"Unauthorized: missing token, token error, token expired"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "500":{
                   "description":"Various of 5xx. see [HTTP Error Codes](https://docs.hyphenate.io/docs/error-codes)"
@@ -3239,7 +3239,7 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -3248,13 +3248,13 @@
                   "description":"",
                   "required":true,
                   "type":"string",
-                  "default":"${username}",
+                  "default":"apple",
                   "format":""
                }
             ],
             "responses":{
                "401":{
-                  "description":"Unauthorized: missing token, token error, token expired"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "404":{
                   "description":"User cannot be found"
@@ -3306,7 +3306,7 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -3315,13 +3315,13 @@
                   "description":"",
                   "required":true,
                   "type":"string",
-                  "default":"user1",
+                  "default":"apple",
                   "format":""
                }
             ],
             "responses":{
                "401":{
-                  "description":"unauthorized [without token, token error, token expired]"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "404":{
                   "description":"User cannot be found"
@@ -3373,7 +3373,7 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -3382,7 +3382,7 @@
                   "description":"",
                   "required":true,
                   "type":"string",
-                  "default":"${username}",
+                  "default":"apple",
                   "format":""
                },
                {
@@ -3397,7 +3397,7 @@
             ],
             "responses":{
                "401":{
-                  "description":"Unauthorized: missing token, token error, token expired"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "404":{
                   "description":"User or message cannot be found"
@@ -3449,7 +3449,7 @@
                   "description":"Bearer ${token}",
                   "required":false,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -3458,7 +3458,7 @@
                   "description":"",
                   "required":true,
                   "type":"string",
-                  "default":"${username}",
+                  "default":"apple",
                   "format":""
                },
                {
@@ -3473,7 +3473,7 @@
             ],
             "responses":{
                "401":{
-                  "description":"Unauthorized: missing token, token error, token expired"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "404":{
                   "description":"User cannot be found"
@@ -3525,7 +3525,7 @@
                   "description":"Bearer ${token}",
                   "required":true,
                   "type":"string",
-                  "default":"Bearer YWMtLU9T4JRGEea0-Vvai3EzjAAAAVkGz4dZKNSpsVdRvVix2OfSm42w5-IaUL4",
+                  "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
                },
                {
@@ -3534,13 +3534,13 @@
                   "description":"",
                   "required":true,
                   "type":"string",
-                  "default":"${username}",
+                  "default":"apple",
                   "format":""
                }
             ],
             "responses":{
                "401":{
-                  "description":"Unauthorized: missing token, token error, token expired"
+                  "description":"Unauthorized: missing token, token error, or token expired"
                },
                "404":{
                   "description":"User cannot be found"
@@ -3564,7 +3564,7 @@
          "properties":{
             "username":{
                "type":"string",
-               "example":"orange"
+               "example":"apple"
             },
             "password":{
                "type":"string",
@@ -3585,8 +3585,7 @@
          "type":"object",
          "properties":{
             "nickname":{
-               "type":"string",
-               "example":"apple-push"
+               "type":"string"
             }
          }
       },
