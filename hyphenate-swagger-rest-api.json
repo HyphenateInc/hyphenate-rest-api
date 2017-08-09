@@ -2340,7 +2340,7 @@
                   "description":"The user who is requesting blacklist",
                   "required":true,
                   "type":"string",
-                  "default":"${username}",
+                  "default":"apple",
                   "format":""
                }
             ],
@@ -2405,7 +2405,7 @@
                   "description":"The user who initiated the blocking",
                   "required":true,
                   "type":"string",
-                  "default":"${username}",
+                  "default":"apple",
                   "format":""
                },
                {
@@ -2414,7 +2414,7 @@
                   "description":"Users to be blocked. Use ',' to separate the Usernames",
                   "required":true,
                   "schema":{
-                     "$ref":"#/definitions/Usernames"
+                     "$ref":"#/definitions/BodyUsernames"
                   }
                }
             ],
@@ -2493,7 +2493,7 @@
                   "description":"",
                   "required":true,
                   "type":"string",
-                  "default":"${username}",
+                  "default":"apple",
                   "format":""
                }
             ],
@@ -3563,10 +3563,12 @@
          "type":"object",
          "properties":{
             "username":{
-               "type":"string"
+               "type":"string",
+               "example":"apple"
             },
             "password":{
-               "type":"string"
+               "type":"string",
+               "example":123456
             }
          }
       },
@@ -3586,19 +3588,27 @@
             }
          }
       },
+      "BodyUsernames":{
+         "type":"object",
+         "properties":{
+            "usernames":{
+               "$ref":"#/definitions/Usernames"
+            }
+         }
+      },
       "Usernames":{
          "type":"array",
          "items":{
-            "type":"string",
-            "example":[
-               "orange",
-               "banana"
-            ]
+            "$ref":"#/definitions/Username1"
          }
       },
       "Username1":{
          "type":"string",
          "example":"apple"
+      },
+      "Username2":{
+         "type":"string",
+         "example":"orange"
       },
       "Msg":{
          "type":"object",
