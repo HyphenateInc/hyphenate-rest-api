@@ -199,8 +199,8 @@ paths:
         2. Group description
         3. Public vs. Private Group
         4. Max number of member (including admin)
-        5. If public group, allow join freely vs. require permission from admin
-        6. allowinvites property. If public group, then allowinvites is false. If private group, then allowinvites is true. 
+        5. Allow users to join freely or require permission from admin. 
+        7. In default, "allowinvites" is false for public group, and true for private group. But able to configure when creating group in client side. 
       schemes:
         - https
       consumes:
@@ -231,7 +231,14 @@ paths:
           format: ''
         - in: body
           name: body
-          description: '"desc": group description. Note: Use key "desc".                                                                                                                                           public vs. private: group type.                                                                       maxusers: (Optional Attribute, default is 200). The max number of group members.                                     approval: (Optional Attribute, default is true). Does user need permission to join the group?                          owner: The owner (admin) of the group.                                                          members: (Optional Attribute) Group members. Ignore the attribute if no member to be added. The group owner does not represent as a group member. '
+          description: |-
+            1. **groupname:** Group name
+            2. **desc:** Decription of the group
+            3. **public/private:** Pubic or Private group type
+            4. **maxusers:** Max number of member (including admin) in the group. (Optional Attribute, default is 200)
+            5. **approval:** Does user need permission to join the group? (Optional Attribute, default is true).
+            6. **owner:** The owner (admin) of the group.
+            7. **members:** Group members. Ignore the attribute if no member to be added. And the group owner does not represent as a group member. (Optional Attribute)
           required: true
           schema:
             $ref: '#/definitions/Group'
@@ -296,11 +303,9 @@ paths:
         - Groups
       summary: Update Group Details
       description: |-
-        The message body allows change groupname, description, maxusers, and newowner.
-
-        Note: Use '+' to replace space if modifying groupname ​and description. E.g., use "test+group" instead of "test group".
-
-        Warning: If group cannot be found or operation failed, then the response will still return HTTP code 200, but key-value are "maxusers"=false, "groupname"=false, and "description"=false. You can also change the group owner by setting "newowner"="new_owner_username".
+        1. The message body allows change of groupname, description, maxusers, and newowner.
+        2. **Note:** Use '+' to replace space if modifying groupname and description. E.g., use "test+group" instead of "test group".
+        3. **Warning:** If group cannot be found or operation failed, then the response will still return HTTP code 200, but key-value are "maxusers"=false, "groupname"=false, and "description"=false. You can also change the group owner by setting "newowner"="new_owner_username".
       schemes:
         - https
       consumes:
@@ -396,8 +401,8 @@ paths:
     get:
       tags:
         - Groups
-      summary: Get Group Blocked Users
-      description: Get the blacklist of blocked users. Blocked user cannot see nor receive group message.
+      summary: Get Blocked Member
+      description: Get the blacklist of blocked members. Blocked members cannot see nor receive group message.
       schemes:
         - https
       consumes:
@@ -444,7 +449,7 @@ paths:
       tags:
         - Groups
       summary: Block Group Members in Batch
-      description: 'Block multiple group members by adding the users to the group blacklist. Max 60 users at a time. Blocked users will receive an event, "You are kicked out of the group {groupid}". Blocked user will not able to see nor receive group message.'
+      description: 'Block multiple group members by adding them to the group blacklist. **Max 60** members at a time. Blocked members will receive an event, "You are kicked out of the group {groupid}". Blocked members will not able to see nor receive group message.'
       schemes:
         - https
       consumes:
@@ -485,7 +490,7 @@ paths:
           description: 'Separate Usernames by '','''
           required: true
           schema:
-            $ref: '#/definitions/Usernames'
+            $ref: '#/definitions/BodyUsernames'
       responses:
         '401':
           description: 'Unauthorized: missing token, token error, or token expired'
@@ -554,9 +559,9 @@ paths:
         - Groups
       summary: Block a Group Member
       description: |-
-        Block a group member by adding the user to the group blacklist. 
-        Blocked user will receive an event, "You are kicked out of the group {groupid}".
-        Blocked user will not able to see nor  receive group message. 
+        1. Block a group member by adding the member to group blacklist. 
+        2. Blocked member will receive an event, "You are kicked out of the group {groupid}".
+        3. Blocked member will not able to see nor  receive group message. 
       schemes:
         - https
       consumes:
@@ -612,7 +617,7 @@ paths:
       tags:
         - Groups
       summary: Unblock a Group Member
-      description: 'Unblock group member by removing the user from group blacklist. '
+      description: 'Unblock group member by removing the member from group blacklist. '
       schemes:
         - https
       consumes:
@@ -668,7 +673,7 @@ paths:
     get:
       tags:
         - Groups
-      summary: Get a List of Members of Group
+      summary: Get a List of Group Members
       description: ''
       schemes:
         - https
@@ -715,7 +720,7 @@ paths:
     post:
       tags:
         - Groups
-      summary: Add Multiple Members to Group
+      summary: Add Multiple Members to a Group
       description: 'Warning: Add **Max 60 members** once at a time.'
       schemes:
         - https
@@ -757,7 +762,7 @@ paths:
           description: 'Separate Usernames by '','''
           required: true
           schema:
-            $ref: '#/definitions/Usernames'
+            $ref: '#/definitions/BodyUsernames'
       responses:
         '400':
           description: User(s) cannot be found
@@ -771,7 +776,7 @@ paths:
     delete:
       tags:
         - Groups
-      summary: Remove multiple Members from the Group
+      summary: Remove multiple Members from a Group
       description: ''
       schemes:
         - https
@@ -1434,7 +1439,7 @@ paths:
       summary: Send a Message
       description: |-
         Send a message to user(s) and group(s).               
-        Please refer to the Hyphenate docs for further details about message body. https://docs.hyphenate.io/docs/post-messages
+        Please refer to the Hyphenate docs for further details about message body: https://docs.hyphenate.io/docs/messages
       schemes:
         - https
       consumes:
@@ -1465,7 +1470,7 @@ paths:
           format: ''
         - in: body
           name: body
-          description: 'Message types: Text, image, audio message, video, command, etc. Please refer to the Hyphenate docs for further details about message body. https://docs.hyphenate.io/docs/post-messages'
+          description: 'Message types: text, image, audio message, video, command, etc. Please refer to the Hyphenate docs for further details about message body: https://docs.hyphenate.io/docs/messages'
           required: true
           schema:
             $ref: '#/definitions/Msg'
@@ -1519,7 +1524,7 @@ paths:
       tags:
         - Users
       summary: Get Users in Batch
-      description: Get a list of users
+      description: Get a list of users.
       schemes:
         - https
       consumes:
@@ -1550,14 +1555,14 @@ paths:
           format: ''
         - name: limit
           in: query
-          description: 'Get specified number of user by setting the batch limit with parameter "limit". Otherwise the API returns the 10 most recent created users by default. '
+          description: 'The API returns the 10 most recently created users by default. You can specify a batch limit value by passing the parameter limit=N, where N is the batch limit value. '
           required: false
           type: string
           default: '3'
           format: ''
         - name: cursor
           in: query
-          description: '**Pagination**: If the query results more objects than value of limit, then the response will carry an extra attribute “cursor”, the value points to the next page. There is No cursor on the last page or if the returning objects is less than batch limit value.'
+          description: 'Paging: If the query contains more objects than the N value provided, the returning json will carry an extra attribute cursor, the value of which points to the next page. No cursor value is returned on the last page, or if the total returned objects is fewer than the batch limit number.'
           required: false
           type: string
           default: LTgzNDAxMjM3OTpreS0yeXBSSkVlYWZZODl3bXppMTFn"
@@ -1572,7 +1577,7 @@ paths:
         - Users
       summary: Create a User
       description: |-
-        Register an IM user account respects to org and app keys. 
+        Register a user account respects to org and app keys. 
         Note: There're 2 types of registration, 'open' and 'authorized'. 'open' registration does not require admin authentication, but 'authorized' does. See the application -> "overview" -> "User Registration Permission" in Hyphenate console. 
         'Authorized' registration is recommended, which prevents malicious attempt to create junk user account from the ones obtained the URL. 
       schemes:
@@ -1672,8 +1677,8 @@ paths:
     get:
       tags:
         - Users
-      summary: Get a List of Blocked Users
-      description: Get a List of Blocked Users by the user.
+      summary: Get a Blacklist
+      description: Get a user's blacklist.
       schemes:
         - https
       consumes:
@@ -1719,8 +1724,8 @@ paths:
     post:
       tags:
         - Users
-      summary: Block User(s)
-      description: Block one or multiple users by adding to blacklist. Blocked user cannot send message.
+      summary: Block Contacts(s)
+      description: Block one or multiple contacts by adding to user's blacklist. Blocked contacts cannot send message.
       schemes:
         - https
       consumes:
@@ -1756,8 +1761,8 @@ paths:
           type: string
           default: 'apple'
           format: ''
-        - in: body
-          name: Usernames
+        - name: Usernames
+          in: body
           description: 'Users to be blocked. Use '','' to separate the Usernames'
           required: true
           schema:
@@ -1775,8 +1780,8 @@ paths:
     delete:
       tags:
         - Users
-      summary: Unblock User(s)
-      description: 'Unblock one or multiple users by removing them from blacklist. Max 60 users at a time. '
+      summary: Remove Contacts from Blacklist
+      description: Unblock one or multiple contacts by removing them from user's blacklist. Max 60 contaacts at a time. 
       schemes:
         - https
       consumes:
@@ -1830,8 +1835,8 @@ paths:
     get:
       tags:
         - Users
-      summary: Get a List of Contacts
-      description: Get user's contact list
+      summary: Get a List of Contacts.
+      description: Get a user's contact list
       schemes:
         - https
       consumes:
@@ -1878,8 +1883,8 @@ paths:
     post:
       tags:
         - Users
-      summary: Add Contact for User
-      description: Add contact for user. Contact to be added must under the same application as the user.
+      summary: Add a Contact for User
+      description: Add a contact for user. The contact to be added must be under the same application as the user.
       schemes:
         - https
       consumes:
@@ -1932,8 +1937,8 @@ paths:
     delete:
       tags:
         - Users
-      summary: Remove Contact from User
-      description: Remove contact from user's contact list.
+      summary: Remove a Contact for User
+      description: Remove a contact from the user's contact list.
       schemes:
         - https
       consumes:
@@ -1988,7 +1993,7 @@ paths:
       tags:
         - Users
       summary: Get Offline Message Count
-      description: Get the number of offline messages
+      description: Get the number of offline messages.
       schemes:
         - https
       consumes:
@@ -2108,7 +2113,7 @@ paths:
         - name: Authorization
           in: header
           description: 'Bearer ${token}'
-          required: false
+          required: true
           type: string
           default: Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE
           format: ''
@@ -2502,7 +2507,7 @@ paths:
         - name: Authorization
           in: header
           description: 'Bearer ${token}'
-          required: false
+          required: true
           type: string
           default: Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE
           format: ''
@@ -2658,34 +2663,36 @@ definitions:
     properties:
       groupname:
         type: string
+        example: The Fruit Basket
       desc:
         type: string
+        example: This group is for all beautiful fruits.
       public:
         type: boolean
       maxusers:
         type: integer
+        example: 200
       approval:
         type: boolean
       owner:
         type: string
+        example: peach
       members:
-        $ref: '#/definitions/Username1'
+        $ref: '#/definitions/Usernames'
   ModifyGroup:
     type: object
     properties:
       groupname:
         type: string
+        example: BestBerries
       description:
         type: string
+        example: Berries Only
       maxusers:
         type: integer
+        example: 200
       newowner:
-        type: string
-  NewOwner:
-    type: object
-    properties:
-      newowner:
-        type: string
+        $ref: '#/definitions/Username1'
   Chatroom:
     type: object
     properties:
