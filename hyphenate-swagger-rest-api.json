@@ -53,7 +53,7 @@
                "Upload and Download Files"
             ],
             "summary":"Upload a File",
-            "description":"Warning: File cannot exceed 10 MB, otherwise will fail.\nImportant: Be sure keep the \"uuid\" and \"share-secret\", which are requirement when downloading particular file.",
+            "description":"* **Warning:** File cannot exceed **10 MB**, otherwise will fail.\n* **Important:** Be sure keep the `uuid` and `share-secret`, which are requirement when downloading particular file.",
             "schemes":[
                "https"
             ],
@@ -127,7 +127,7 @@
                "Upload and Download Files"
             ],
             "summary":"Download a File",
-            "description":"Important:\n1. Include the share-secret from HTTP header \n2. Include uuid from the response of a successful file uploading, which is the file identifier\n",
+            "description":"**Important:**\n* Include the share-secret from HTTP header \n* Include uuid from the response of a successful file uploading, which is the file identifier\n",
             "schemes":[
                "https"
             ],
@@ -262,7 +262,7 @@
                "Groups"
             ],
             "summary":"Create a Group",
-            "description":"Group settings:\n1. Group name\n2. Group description\n3. Public vs. Private Group\n4. Max number of member (including admin)\n5. If public group, allow join freely vs. require permission from admin\n6. allowinvites property. If public group, then allowinvites is false. If private group, then allowinvites is true.",
+            "description":"Group settings:\n1. Group name\n2. Group description\n3. Public vs. Private Group\n4. Max number of member (including admin)\n5. Allow users to join freely or require permission from admin. \n6. In default, `allowinvites` is false for public group, and true for private group. This option is configureable in the client-side.",
             "schemes":[
                "https"
             ],
@@ -303,7 +303,7 @@
                {
                   "in":"body",
                   "name":"body",
-                  "description":"\"desc\": group description. Note: Use key \"desc\".                                                                                                                                           public vs. private: group type.                                                                       maxusers: (Optional Attribute, default is 200). The max number of group members.                                     approval: (Optional Attribute, default is true). Does user need permission to join the group?                          owner: The owner (admin) of the group.                                                          members: (Optional Attribute) Group members. Ignore the attribute if no member to be added. The group owner does not represent as a group member. ",
+                  "description":"1. **groupname:** Group name\n2. **desc:** Decription of the group\n3. **public/private:** Pubic or Private group type\n4. **maxusers:** Max number of member (including admin) in the group. (Optional Attribute, default is 200)\n5. **approval:** Does user need permission to join the group? (Optional Attribute, default is true).\n6. **owner:** The owner (admin) of the group.\n7. **members:** Group members. Ignore the attribute if no member to be added. And the group owner does not represent as a group member. (Optional Attribute)",
                   "required":true,
                   "schema":{
                      "$ref":"#/definitions/Group"
@@ -396,7 +396,7 @@
                "Groups"
             ],
             "summary":"Update Group Details",
-            "description":"The message body allows change groupname, description, maxusers, and newowner.\n\nNote: Use '+' to replace space if modifying groupname ​and description. E.g., use \"test+group\" instead of \"test group\".\n\nWarning: If group cannot be found or operation failed, then the response will still return HTTP code 200, but key-value are \"maxusers\"=false, \"groupname\"=false, and \"description\"=false. You can also change the group owner by setting \"newowner\"=\"new_owner_username\".",
+            "description":"* The message body allows change of `groupname`, `description`, `maxusers`, and `newowner`.\n* **Note:** Use '+' to replace space if modifying groupname and description. E.g., use \"test+group\" instead of \"test group\".\n* **Warning:** If group cannot be found or operation failed, then the response will still return HTTP code 200, but key-value are `maxusers`=false, `groupname`=false, and `description`=false. You can also change the group owner by setting `newowner`=`new_owner_username`.",
             "schemes":[
                "https"
             ],
@@ -530,8 +530,8 @@
             "tags":[
                "Groups"
             ],
-            "summary":"Get Group Blocked Users",
-            "description":"Get the blacklist of blocked users. Blocked user cannot see nor receive group message.",
+            "summary":"Get Blocked Member",
+            "description":"Get a group's blacklist of blocked members. Blocked members cannot see nor receive group message.",
             "schemes":[
                "https"
             ],
@@ -596,7 +596,7 @@
                "Groups"
             ],
             "summary":"Block Group Members in Batch",
-            "description":"Block multiple group members by adding the users to the group blacklist. Max 60 users at a time. Blocked users will receive an event, \"You are kicked out of the group {groupid}\". Blocked user will not able to see nor receive group message.",
+            "description":"* Block multiple group members by adding them to the group blacklist. Max 60** members at a time. \n* Blocked members will receive an event, \"You are kicked out of the group `{groupid}`\". \n* Blocked members will not able to see nor receive group message.'",
             "schemes":[
                "https"
             ],
@@ -649,7 +649,7 @@
                   "description":"Separate Usernames by ','",
                   "required":true,
                   "schema":{
-                     "$ref":"#/definitions/Usernames"
+                     "$ref":"#/definitions/BodyUsernames"
                   }
                }
             ],
@@ -748,7 +748,7 @@
                "Groups"
             ],
             "summary":"Block a Group Member",
-            "description":"Block a group member by adding the user to the group blacklist. \nBlocked user will receive an event, \"You are kicked out of the group {groupid}\".\nBlocked user will not able to see nor  receive group message.",
+            "description":"* Block a group member by adding the member to group blacklist. \n* Blocked member will receive an event, \"You are kicked out of the group `{groupid}`\".\n* Blocked member will not able to see nor  receive group message.",
             "schemes":[
                "https"
             ],
@@ -825,7 +825,7 @@
                "Groups"
             ],
             "summary":"Unblock a Group Member",
-            "description":"Unblock group member by removing the user from group blacklist. ",
+            "description":"Unblock group member by removing the member from the group blacklist. ",
             "schemes":[
                "https"
             ],
@@ -903,7 +903,7 @@
             "tags":[
                "Groups"
             ],
-            "summary":"Get a List of Members of Group",
+            "summary":"Get a List of Group Members",
             "description":"",
             "schemes":[
                "https"
@@ -968,8 +968,8 @@
             "tags":[
                "Groups"
             ],
-            "summary":"Add Multiple Members to Group",
-            "description":"Warning: Add **Max 60 members** once at a time.",
+            "summary":"Add Group Members in Batch",
+            "description":"**Warning:** Add **Max 60 members** once at a time.",
             "schemes":[
                "https"
             ],
@@ -1022,7 +1022,7 @@
                   "description":"Separate Usernames by ','",
                   "required":true,
                   "schema":{
-                     "$ref":"#/definitions/Usernames"
+                     "$ref":"#/definitions/BodyUsernames"
                   }
                }
             ],
@@ -1047,7 +1047,7 @@
             "tags":[
                "Groups"
             ],
-            "summary":"Remove multiple Members from the Group",
+            "summary":"Remove multiple Members from a Group",
             "description":"",
             "schemes":[
                "https"
@@ -1277,7 +1277,7 @@
                "Chat History"
             ],
             "summary":"Get Message History",
-            "description":"Query message history base on hour block in UTC time.",
+            "description":"* **This API does NOT support real time message history fetching. Please see Webhooks for real time message pushing to your server from Hyphenate directly.** \n* This API will respond with a URL to download message history file. The link is valid for 30 mins. Please allow some time to generate the message history file before calling the API. \n* i.e., you can download message history for 7/19/2017 7:00~8:00am after 7/19/2017 9:00am.'",
             "schemes":[
                "https"
             ],
@@ -1663,7 +1663,7 @@
                "Chat Rooms"
             ],
             "summary":"Add Chat Room Members in Batch",
-            "description":"Add max 60 group members at a time.",
+            "description":"Add **max 60** group members at a time.",
             "schemes":[
                "https"
             ],
@@ -1712,11 +1712,11 @@
                },
                {
                   "in":"body",
-                  "name":"content",
-                  "description":"",
+                  "name":"body",
+                  "description":"Separate Usernames by ','",
                   "required":true,
                   "schema":{
-                     "$ref":"#/definitions/Usernames"
+                     "$ref":"#/definitions/BodyUsernames"
                   }
                }
             ],
@@ -1965,7 +1965,7 @@
                "Messages"
             ],
             "summary":"Send a Message",
-            "description":"Send a message to user(s) and group(s).               \nPlease refer to the Hyphenate docs for further details about message body. https://docs.hyphenate.io/docs/post-messages",
+            "description":"* Send a message to user(s) and group(s).               \n* Please refer to the Hyphenate docs for further details about message body: https://docs.hyphenate.io/docs/messages",
             "schemes":[
                "https"
             ],
@@ -2006,7 +2006,7 @@
                {
                   "in":"body",
                   "name":"body",
-                  "description":"Message types: Text, image, audio message, video, command, etc. Please refer to the Hyphenate docs for further details about message body. https://docs.hyphenate.io/docs/post-messages",
+                  "description":"Message types: text, image, audio message, video, command, etc. Please refer to the Hyphenate docs for further details about message body: https://docs.hyphenate.io/docs/messages",
                   "required":true,
                   "schema":{
                      "$ref":"#/definitions/Msg"
@@ -2087,7 +2087,7 @@
                "Users"
             ],
             "summary":"Get Users in Batch",
-            "description":"Get a list of users",
+            "description":"Get a list of users.",
             "schemes":[
                "https"
             ],
@@ -2128,7 +2128,7 @@
                {
                   "name":"limit",
                   "in":"query",
-                  "description":"Get specified number of user by setting the batch limit with parameter \"limit\". Otherwise the API returns the 10 most recent created users by default. ",
+                  "description":"The API returns the 10 most recently created users by default. You can specify a batch limit value by passing the parameter limit=N, where N is the batch limit value. ",
                   "required":false,
                   "type":"string",
                   "default":"3",
@@ -2137,7 +2137,7 @@
                {
                   "name":"cursor",
                   "in":"query",
-                  "description":"**Pagination**: If the query results more objects than value of limit, then the response will carry an extra attribute “cursor”, the value points to the next page. There is No cursor on the last page or if the returning objects is less than batch limit value.",
+                  "description":"Paging: If the query contains more objects than the N value provided, the returning json will carry an extra attribute cursor, the value of which points to the next page. No cursor value is returned on the last page, or if the total returned objects is fewer than the batch limit number.",
                   "required":false,
                   "type":"string",
                   "default":"LTgzNDAxMjM3OTpreS0yeXBSSkVlYWZZODl3bXppMTFn\"",
@@ -2158,7 +2158,7 @@
                "Users"
             ],
             "summary":"Create a User",
-            "description":"Register an IM user account respects to org and app keys. \nNote: There're 2 types of registration, 'open' and 'authorized'. 'open' registration does not require admin authentication, but 'authorized' does. See the application -> \"overview\" -> \"User Registration Permission\" in Hyphenate console. \n'Authorized' registration is recommended, which prevents malicious attempt to create junk user account from the ones obtained the URL.",
+            "description":"* Register a user account respects to org and app keys. \n* Note: There're 2 types of registration, `open` and `authorized`. `open` registration does not require admin authentication, but `authorized` does. \n* See the application -> \"overview\" -> \"User Registration Permission\" in Hyphenate console. `Authorized` registration is recommended, which prevents malicious attempt to create junk user account from the ones obtained the URL.",
             "schemes":[
                "https"
             ],
@@ -2295,8 +2295,8 @@
             "tags":[
                "Users"
             ],
-            "summary":"Get a List of Blocked Users",
-            "description":"Get a List of Blocked Users by the user.",
+            "summary":"Get a Blacklist",
+            "description":"Get a user's blacklist.",
             "schemes":[
                "https"
             ],
@@ -2360,8 +2360,8 @@
             "tags":[
                "Users"
             ],
-            "summary":"Block User(s)",
-            "description":"Block one or multiple users by adding to blacklist. Blocked user cannot send message.",
+            "summary":"Block Contacts(s)",
+            "description":"Block one or multiple contacts by adding to user's blacklist. Blocked contacts cannot send message.",
             "schemes":[
                "https"
             ],
@@ -2409,8 +2409,8 @@
                   "format":""
                },
                {
-                  "in":"body",
                   "name":"Usernames",
+                  "in":"body",
                   "description":"Users to be blocked. Use ',' to separate the Usernames",
                   "required":true,
                   "schema":{
@@ -2439,8 +2439,8 @@
             "tags":[
                "Users"
             ],
-            "summary":"Unblock User(s)",
-            "description":"Unblock one or multiple users by removing them from blacklist. Max 60 users at a time. ",
+            "summary":"Remove Contacts from Blacklist",
+            "description":"Unblock one or multiple contacts by removing them from user's blacklist. **Max 60** contacts at a time.",
             "schemes":[
                "https"
             ],
@@ -2515,8 +2515,8 @@
             "tags":[
                "Users"
             ],
-            "summary":"Get a List of Contacts",
-            "description":"Get user's contact list",
+            "summary":"Get a List of Contacts.",
+            "description":"Get a user's contact list",
             "schemes":[
                "https"
             ],
@@ -2582,8 +2582,8 @@
             "tags":[
                "Users"
             ],
-            "summary":"Add Contact for User",
-            "description":"Add contact for user. Contact to be added must under the same application as the user.",
+            "summary":"Add a Contact for User",
+            "description":"Add a contact for user. The contact to be added must be under the same application as the user.",
             "schemes":[
                "https"
             ],
@@ -2656,8 +2656,8 @@
             "tags":[
                "Users"
             ],
-            "summary":"Remove Contact from User",
-            "description":"Remove contact from user's contact list.",
+            "summary":"Remove a Contact for User",
+            "description":"Remove a contact from the user's contact list.",
             "schemes":[
                "https"
             ],
@@ -2733,7 +2733,7 @@
                "Users"
             ],
             "summary":"Get Offline Message Count",
-            "description":"Get the number of offline messages",
+            "description":"Get the number of offline messages.",
             "schemes":[
                "https"
             ],
@@ -2898,7 +2898,7 @@
                   "name":"Authorization",
                   "in":"header",
                   "description":"Bearer ${token}",
-                  "required":false,
+                  "required":true,
                   "type":"string",
                   "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
@@ -2939,7 +2939,7 @@
                "Users"
             ],
             "summary":"Delete a User",
-            "description":"Warning: Delete a user will also delete the group and chat room if the specified user is the admin of the group and chat room. ",
+            "description":"**Warning:** Delete a user will also delete the group and chat room if the specified user is the admin of the group and chat room. ",
             "schemes":[
                "https"
             ],
@@ -3447,7 +3447,7 @@
                   "name":"Authorization",
                   "in":"header",
                   "description":"Bearer ${token}",
-                  "required":false,
+                  "required":true,
                   "type":"string",
                   "default":"Bearer YWMtU6PbRnuvEeeUZoMs7HRlGwAAAV7zYlPb_hea5IgRIqHP_dO0Vd5Qe3J6aRE",
                   "format":""
@@ -3577,7 +3577,7 @@
          "properties":{
             "newpassword":{
                "type":"string",
-               "example":123456
+               "example":654321
             }
          }
       },
@@ -3585,7 +3585,8 @@
          "type":"object",
          "properties":{
             "nickname":{
-               "type":"string"
+               "type":"string",
+               "example":"best apple"
             }
          }
       },
@@ -3607,16 +3608,12 @@
          "type":"string",
          "example":"apple"
       },
-      "Username2":{
-         "type":"string",
-         "example":"orange"
-      },
       "Msg":{
          "type":"object",
          "properties":{
             "target_type":{
                "type":"string",
-               "example":"users"
+               "example":"apple"
             },
             "target":{
                "$ref":"#/definitions/Usernames"
@@ -3626,7 +3623,7 @@
             },
             "from":{
                "type":"string",
-               "example":"apple"
+               "example":"orange"
             },
             "ext":{
                "$ref":"#/definitions/Extension"
@@ -3670,25 +3667,29 @@
          "type":"object",
          "properties":{
             "groupname":{
-               "type":"string"
+               "type":"string",
+               "example":"The Fruit Basket"
             },
             "desc":{
-               "type":"string"
+               "type":"string",
+               "example":"This group is for all beautiful fruits."
             },
             "public":{
                "type":"boolean"
             },
             "maxusers":{
-               "type":"integer"
+               "type":"integer",
+               "example":200
             },
             "approval":{
                "type":"boolean"
             },
             "owner":{
-               "type":"string"
+               "type":"string",
+               "example":"orange"
             },
             "members":{
-               "$ref":"#/definitions/Username1"
+               "$ref":"#/definitions/Usernames"
             }
          }
       },
@@ -3696,24 +3697,19 @@
          "type":"object",
          "properties":{
             "groupname":{
-               "type":"string"
+               "type":"string",
+               "example":"Best+Berries"
             },
             "description":{
-               "type":"string"
+               "type":"string",
+               "example":"This+is+for+Berries+Only"
             },
             "maxusers":{
-               "type":"integer"
+               "type":"integer",
+               "example":200
             },
             "newowner":{
-               "type":"string"
-            }
-         }
-      },
-      "NewOwner":{
-         "type":"object",
-         "properties":{
-            "newowner":{
-               "type":"string"
+               "$ref":"#/definitions/Username1"
             }
          }
       },
@@ -3721,19 +3717,23 @@
          "type":"object",
          "properties":{
             "name":{
-               "type":"string"
+               "type":"string",
+               "example":"Music Fruits"
             },
             "description":{
-               "type":"string"
+               "type":"string",
+               "example":"Fruits talk about music."
             },
             "maxusers":{
-               "type":"integer"
+               "type":"integer",
+               "example":2000
             },
             "owner":{
-               "type":"string"
+               "type":"string",
+               "example":"peach"
             },
             "members":{
-               "$ref":"#/definitions/Username1"
+               "$ref":"#/definitions/Usernames"
             }
          }
       },
@@ -3742,11 +3742,11 @@
          "properties":{
             "name":{
                "type":"string",
-               "example":"fruits chat room"
+               "example":"Best Fruits"
             },
             "description":{
                "type":"string",
-               "example":"chat room for fruits"
+               "example":"We're the best fruits!"
             },
             "maxusers":{
                "type":"integer",
