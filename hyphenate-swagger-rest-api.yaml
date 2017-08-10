@@ -37,8 +37,8 @@ paths:
         - Upload and Download Files
       summary: Upload a File
       description: |-
-        Warning: File cannot exceed 10 MB, otherwise will fail.
-        Important: Be sure keep the "uuid" and "share-secret", which are requirement when downloading particular file.
+        * **Warning:** File cannot exceed **10 MB**, otherwise will fail.
+        * **Important:** Be sure keep the `uuid` and `share-secret`, which are requirement when downloading particular file.
       schemes:
         - https
       consumes:
@@ -93,9 +93,9 @@ paths:
         - Upload and Download Files
       summary: Download a File
       description: |
-        Important:
-        1. Include the share-secret from HTTP header 
-        2. Include uuid from the response of a successful file uploading, which is the file identifier
+        **Important:**
+        * Include the share-secret from HTTP header 
+        * Include uuid from the response of a successful file uploading, which is the file identifier
       schemes:
         - https
       consumes:
@@ -200,7 +200,7 @@ paths:
         3. Public vs. Private Group
         4. Max number of member (including admin)
         5. Allow users to join freely or require permission from admin. 
-        7. In default, "allowinvites" is false for public group, and true for private group. But able to configure when creating group in client side. 
+        7. In default, `allowinvites` is false for public group, and true for private group. This option is configureable in the client-side. 
       schemes:
         - https
       consumes:
@@ -303,9 +303,9 @@ paths:
         - Groups
       summary: Update Group Details
       description: |-
-        1. The message body allows change of groupname, description, maxusers, and newowner.
-        2. **Note:** Use '+' to replace space if modifying groupname and description. E.g., use "test+group" instead of "test group".
-        3. **Warning:** If group cannot be found or operation failed, then the response will still return HTTP code 200, but key-value are "maxusers"=false, "groupname"=false, and "description"=false. You can also change the group owner by setting "newowner"="new_owner_username".
+        * The message body allows change of `groupname`, `description`, `maxusers`, and `newowner`.
+        * **Note:** Use '+' to replace space if modifying groupname and description. E.g., use "test+group" instead of "test group".
+        * **Warning:** If group cannot be found or operation failed, then the response will still return HTTP code 200, but key-value are `maxusers`=false, `groupname`=false, and `description`=false. You can also change the group owner by setting `newowner`=`new_owner_username`.
       schemes:
         - https
       consumes:
@@ -402,7 +402,7 @@ paths:
       tags:
         - Groups
       summary: Get Blocked Member
-      description: Get the blacklist of blocked members. Blocked members cannot see nor receive group message.
+      description: Get a group's blacklist of blocked members. Blocked members cannot see nor receive group message.
       schemes:
         - https
       consumes:
@@ -449,7 +449,10 @@ paths:
       tags:
         - Groups
       summary: Block Group Members in Batch
-      description: 'Block multiple group members by adding them to the group blacklist. **Max 60** members at a time. Blocked members will receive an event, "You are kicked out of the group {groupid}". Blocked members will not able to see nor receive group message.'
+      description: |-
+        * Block multiple group members by adding them to the group blacklist. Max 60** members at a time. 
+        * Blocked members will receive an event, "You are kicked out of the group `{groupid}`". 
+        * Blocked members will not able to see nor receive group message.'
       schemes:
         - https
       consumes:
@@ -559,9 +562,9 @@ paths:
         - Groups
       summary: Block a Group Member
       description: |-
-        1. Block a group member by adding the member to group blacklist. 
-        2. Blocked member will receive an event, "You are kicked out of the group {groupid}".
-        3. Blocked member will not able to see nor  receive group message. 
+        * Block a group member by adding the member to group blacklist. 
+        * Blocked member will receive an event, "You are kicked out of the group `{groupid}`".
+        * Blocked member will not able to see nor  receive group message. 
       schemes:
         - https
       consumes:
@@ -617,7 +620,7 @@ paths:
       tags:
         - Groups
       summary: Unblock a Group Member
-      description: 'Unblock group member by removing the member from group blacklist. '
+      description: 'Unblock group member by removing the member from the group blacklist. '
       schemes:
         - https
       consumes:
@@ -720,8 +723,8 @@ paths:
     post:
       tags:
         - Groups
-      summary: Add Multiple Members to a Group
-      description: 'Warning: Add **Max 60 members** once at a time.'
+      summary: Add Group Members in Batch
+      description: '**Warning:** Add **Max 60 members** once at a time.'
       schemes:
         - https
       consumes:
@@ -943,7 +946,10 @@ paths:
       tags:
         - Chat History
       summary: Get Message History
-      description: 'Query message history base on hour block in UTC time.'
+      description: |-
+        * **This API does NOT support real time message history fetching. Please see Webhooks for real time message pushing to your server from Hyphenate directly.** 
+        * This API will respond with a URL to download message history file. The link is valid for 30 mins. Please allow some time to generate the message history file before calling the API. 
+        * i.e., you can download message history for 7/19/2017 7:00~8:00am after 7/19/2017 9:00am.'
       schemes:
         - https
       consumes:
@@ -1219,7 +1225,7 @@ paths:
       tags:
         - Chat Rooms
       summary: Add Chat Room Members in Batch
-      description: Add max 60 group members at a time.
+      description: Add **max 60** group members at a time.
       schemes:
         - https
       consumes:
@@ -1256,11 +1262,11 @@ paths:
           default: '254235208700660172'
           format: ''
         - in: body
-          name: content
-          description: ''
+          name: body
+          description: 'Separate Usernames by '','''
           required: true
           schema:
-            $ref: '#/definitions/Usernames'
+            $ref: '#/definitions/BodyUsernames'
       responses:
         '400':
           description: Chat room or user cannot be found
@@ -1438,8 +1444,8 @@ paths:
         - Messages
       summary: Send a Message
       description: |-
-        Send a message to user(s) and group(s).               
-        Please refer to the Hyphenate docs for further details about message body: https://docs.hyphenate.io/docs/messages
+        * Send a message to user(s) and group(s).               
+        * Please refer to the Hyphenate docs for further details about message body: https://docs.hyphenate.io/docs/messages
       schemes:
         - https
       consumes:
@@ -1577,9 +1583,9 @@ paths:
         - Users
       summary: Create a User
       description: |-
-        Register a user account respects to org and app keys. 
-        Note: There're 2 types of registration, 'open' and 'authorized'. 'open' registration does not require admin authentication, but 'authorized' does. See the application -> "overview" -> "User Registration Permission" in Hyphenate console. 
-        'Authorized' registration is recommended, which prevents malicious attempt to create junk user account from the ones obtained the URL. 
+        * Register a user account respects to org and app keys. 
+        * Note: There're 2 types of registration, `open` and `authorized`. `open` registration does not require admin authentication, but `authorized` does. 
+        * See the application -> "overview" -> "User Registration Permission" in Hyphenate console. `Authorized` registration is recommended, which prevents malicious attempt to create junk user account from the ones obtained the URL. 
       schemes:
         - https
       consumes:
@@ -1781,7 +1787,7 @@ paths:
       tags:
         - Users
       summary: Remove Contacts from Blacklist
-      description: Unblock one or multiple contacts by removing them from user's blacklist. Max 60 contaacts at a time. 
+      description: Unblock one or multiple contacts by removing them from user's blacklist. **Max 60** contacts at a time. 
       schemes:
         - https
       consumes:
@@ -2141,7 +2147,7 @@ paths:
       tags:
         - Users
       summary: Delete a User
-      description: 'Warning: Delete a user will also delete the group and chat room if the specified user is the admin of the group and chat room. '
+      description: '**Warning:** Delete a user will also delete the group and chat room if the specified user is the admin of the group and chat room. '
       schemes:
         - https
       consumes:
@@ -2598,12 +2604,13 @@ definitions:
     properties:
       newpassword:
         type: string
-        example: 123456
+        example: 654321
   Nickname:
     type: object
     properties:
       nickname:
         type: string
+        example: best apple
   BodyUsernames:
     type: object
     properties:
@@ -2616,22 +2623,19 @@ definitions:
   Username1:
     type: string
     example: apple
-  Username2:
-    type: string
-    example: orange
   Msg:
     type: object
     properties:
       target_type:
         type: string
-        example: users
+        example: apple
       target:
         $ref: '#/definitions/Usernames'
       msg:
         $ref: '#/definitions/MsgContent'
       from:
         type: string
-        example: apple
+        example: orange
       ext:
         $ref: '#/definitions/Extension'
   MsgContent:
@@ -2676,7 +2680,7 @@ definitions:
         type: boolean
       owner:
         type: string
-        example: peach
+        example: orange
       members:
         $ref: '#/definitions/Usernames'
   ModifyGroup:
@@ -2684,10 +2688,10 @@ definitions:
     properties:
       groupname:
         type: string
-        example: BestBerries
+        example: Best+Berries
       description:
         type: string
-        example: Berries Only
+        example: This+is+for+Berries+Only
       maxusers:
         type: integer
         example: 200
@@ -2698,23 +2702,27 @@ definitions:
     properties:
       name:
         type: string
+        example: Music Fruits
       description:
         type: string
+        example: Fruits talk about music.
       maxusers:
         type: integer
+        example: 2000
       owner:
         type: string
+        example: peach
       members:
-        $ref: '#/definitions/Username1'
+        $ref: '#/definitions/Usernames'
   ModifyChatroom:
     type: object
     properties:
       name:
         type: string
-        example: fruits chat room
+        example: Best Fruits
       description:
         type: string
-        example: chat room for fruits
+        example: We're the best fruits!
       maxusers:
         type: integer
         example: 500
