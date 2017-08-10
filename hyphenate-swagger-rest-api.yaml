@@ -200,7 +200,7 @@ paths:
         3. Public vs. Private Group
         4. Max number of member (including admin)
         5. Allow users to join freely or require permission from admin. 
-        7. In default, `allowinvites` is false for public group, and true for private group. This option is configureable in the client-side. 
+        6. In default, `allowinvites` is false for public group, and true for private group. This option is configureable in the client-side. 
       schemes:
         - https
       consumes:
