@@ -530,7 +530,7 @@
             "tags":[
                "Groups"
             ],
-            "summary":"Get Blocked Member",
+            "summary":"Get Blocked Members",
             "description":"Get a group's blacklist of blocked members. Blocked members cannot see nor receive group message.",
             "schemes":[
                "https"
@@ -1047,7 +1047,7 @@
             "tags":[
                "Groups"
             ],
-            "summary":"Remove multiple Members from a Group",
+            "summary":"Remove Group Members in Batch",
             "description":"",
             "schemes":[
                "https"
@@ -2295,7 +2295,7 @@
             "tags":[
                "Users"
             ],
-            "summary":"Get a Blacklist",
+            "summary":"Get a User's Blacklist",
             "description":"Get a user's blacklist.",
             "schemes":[
                "https"
@@ -3203,7 +3203,7 @@
             "tags":[
                "Users"
             ],
-            "summary":"Get a List of Groups of User Joined",
+            "summary":"Get a List of Groups User Currently Joined",
             "description":"",
             "schemes":[
                "https"
@@ -3270,7 +3270,7 @@
             "tags":[
                "Users"
             ],
-            "summary":"Get All the Chat Rooms of User Joined",
+            "summary":"Get a List of Chat Rooms User Currently Joined",
             "description":"",
             "schemes":[
                "https"
@@ -3338,7 +3338,7 @@
                "Users"
             ],
             "summary":"Get Offline Message Status",
-            "description":"Get offline message status via message ID. Get message ID via the method get message history.",
+            "description":"Get undelivered message status via message ID. Get message ID via the method get message history.",
             "schemes":[
                "https"
             ],
@@ -3613,7 +3613,7 @@
          "properties":{
             "target_type":{
                "type":"string",
-               "example":"apple"
+               "example":"users"
             },
             "target":{
                "$ref":"#/definitions/Usernames"
