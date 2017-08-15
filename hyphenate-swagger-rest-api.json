@@ -1019,7 +1019,7 @@
                {
                   "in":"body",
                   "name":"body",
-                  "description":"Separate Usernames by ','. NO space between comma.",
+                  "description":"Separate Usernames by ','.",
                   "required":true,
                   "schema":{
                      "$ref":"#/definitions/BodyUsernames"
@@ -1098,7 +1098,7 @@
                {
                   "name":"members",
                   "in":"path",
-                  "description":"Use ',' to separate Usernames",
+                  "description":"Use ',' to separate Usernames. NO space between comma.",
                   "required":true,
                   "type":"string",
                   "default":"",
