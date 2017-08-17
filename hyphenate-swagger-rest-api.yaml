@@ -762,7 +762,7 @@ paths:
           format: ''
         - in: body
           name: body
-          description: 'Separate Usernames by '','''
+          description: 'Separate Usernames by '',''. NO space between comma.'
           required: true
           schema:
             $ref: '#/definitions/BodyUsernames'
