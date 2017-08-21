@@ -52,6 +52,12 @@
     },
     {
       "enabled": true,
+      "key": "test_username3",
+      "value": "berry",
+      "type": "text"
+    },
+    {
+      "enabled": true,
       "key": "group_id",
       "value": "24740078092289",
       "type": "text"
@@ -64,13 +70,31 @@
     },
     {
       "enabled": true,
-      "key": "test_username3",
-      "value": "berry",
+      "key": "restrict-access-boolean",
+      "value": "true",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "thumbnail-boolean",
+      "value": "true",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "share-secret",
+      "value": "rmjQioalEee1nvn9wQrrc3SXrJ9LSseyJX5aH-n7MCGWESmq",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "uuid",
+      "value": "ae68d080-86a5-11e7-a2fb-bd79344cffa8",
       "type": "text"
     }
   ],
-  "timestamp": 1502992682274,
+  "timestamp": 1503343268884,
   "_postman_variable_scope": "environment",
-  "_postman_exported_at": "2017-08-17T22:20:22.139Z",
+  "_postman_exported_at": "2017-08-21T19:22:43.352Z",
   "_postman_exported_using": "Postman/5.1.3"
 }
