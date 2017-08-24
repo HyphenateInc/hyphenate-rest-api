@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "Hyphenate APIs",
-		"_postman_id": "4d293d19-88a7-3b27-3bfd-60bc27bdabfc",
+		"_postman_id": "477181ba-a85a-cd09-1aae-6b90d026e9a2",
 		"description": "You can leverage this REST API interfaces for testing. For more details about server implementation, request rate limitation, etc, please visit [Hyphenate Server Integration](https://docs.hyphenate.io/docs/server-overview). \n\n**Note:**\n\n`org_ID` is the unique ID of the organization created when you first registered [Hyphenate console](https://console.hyphenate.io/).                         \n`app_name` is the unique app ID created when you new application in [Hyphenate console](https://console.hyphenate.io/).           \n`Authorization token` is required for most API requests as part of requesting header in the format `Bearer ${token}`. You can obtain the token via [/{org_name}/{app_name}/token](https://docs.hyphenate.io/docs/server-overview#section-request-authentication-token).",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -56,6 +56,306 @@
 			"description": "Folder for {org_name}",
 			"item": [
 				{
+					"name": "Create a User",
+					"request": {
+						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/users",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n  {\n    \"username\": \"apple\",\n    \"password\": 123456\n  }\n]"
+						},
+						"description": "Register a user account respects to org and app keys.\nNote: There're 2 types of registration, open and authorized. open registration does not require admin authentication, but authorized does.\nSee the application -> \"overview\" -> \"User Registration Permission\" in Hyphenate console. Authorized registration is recommended, which prevents malicious attempt to create junk user account from the ones obtained the URL."
+					},
+					"response": []
+				},
+				{
+					"name": "Add a Contact for User",
+					"request": {
+						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/users/{{test_username1}}/contacts/users/{{test_username2}}",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "Implementation Notes\nAdd a contact for user. The contact to be added must be under the same application as the user."
+					},
+					"response": []
+				},
+				{
+					"name": "Get User's Contact List",
+					"request": {
+						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/users/{{test_username1}}/contacts/users",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "Implementation Notes\nGet a user's contact list"
+					},
+					"response": []
+				},
+				{
+					"name": "Block Contact(s)",
+					"request": {
+						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/users/{{test_username1}}/blocks/users",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"usernames\": [\n    \"orange\"\n  ]\n}"
+						},
+						"description": "Implementation Notes\nBlock one or multiple contacts by adding to user's blacklist. Blocked contacts cannot send message."
+					},
+					"response": []
+				},
+				{
+					"name": "Unblock Contact(s)",
+					"request": {
+						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/users/{{test_username1}}/blocks/users/{{test_username2}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"usernames\": [\n    \"orange\"\n  ]\n}"
+						},
+						"description": "Implementation Notes\nUnblock one or multiple contacts by removing them from user's blacklist. Max 60 contacts at a time."
+					},
+					"response": []
+				},
+				{
+					"name": "Get User's Blacklist",
+					"request": {
+						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/users/{{test_username1}}/blocks/users",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "Implementation Notes\nGet a user's blacklist."
+					},
+					"response": []
+				},
+				{
+					"name": "Remove a Contact from User",
+					"request": {
+						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/users/{{test_username1}}/contacts/users/{{test_username2}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "Implementation Notes\nRemove a contact from the user's contact list."
+					},
+					"response": []
+				},
+				{
+					"name": "Get List of Joined Groups",
+					"request": {
+						"url": "http://api.hyphenate.io/{{org_name}}/{{app_name}}/users/{{test_username1}}/joined_chatgroups",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get List of Joined Chatrooms",
+					"request": {
+						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/users/{{test_username1}}/joined_chatrooms",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get Offline Message Count",
+					"request": {
+						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/users/{{test_username1}}/offline_msg_count",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "Implementation Notes\nGet the number of offline messages."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Offline Message Status",
+					"request": {
+						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/users/{{test_username1}}/offline_msg_status/{{messageID}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "Get Undelivered message status via message ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Get a User",
+					"request": {
+						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/users/{{test_username1}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
 					"name": "Get Users in Batch",
 					"request": {
 						"url": {
@@ -98,8 +398,186 @@
 								"description": ""
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": "Implementation Notes\nGet a list of users."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Push Display Name",
+					"request": {
+						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/{{test_username1}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nickname\": \"best apple\"\n}"
+						},
+						"description": "Implementation Notes\nUpdate user's APNs display name for iOS push notification."
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password",
+					"request": {
+						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/users/{{test_username1}}/password",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"newpassword\": 654321\n}"
+						},
+						"description": "To enhance security, we recommend update user's Hyphenate IM user account password if the user's app password on developer server is updated."
+					},
+					"response": []
+				},
+				{
+					"name": "Activate a User",
+					"request": {
+						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/users/{{test_username1}}/activate",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "Implementation Notes\nActivate a deactivated user account."
+					},
+					"response": []
+				},
+				{
+					"name": "Deactivate a User",
+					"request": {
+						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/users/{{test_username1}}/deactivate",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "Implementation Notes\nDeactivate a user account. User will not be able to login."
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Online Status",
+					"request": {
+						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/users/{{test_username1}}/status",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Logout User",
+					"request": {
+						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/users/{{test_username1}}/disconnect",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "Implementation Notes\nForce logout a user"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a User",
+					"request": {
+						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/users/{{test_username1}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "Implementation Notes\nWarning: Delete a user will also delete the group and chat room if the specified user is the admin of the group and chat room."
 					},
 					"response": []
 				},
@@ -146,444 +624,11 @@
 								"description": ""
 							}
 						],
-						"body": {},
-						"description": "Delete total number of N user accounts in batch. Recommend set N range 100~500 at a time to ensure the performance. Cannot specified user account in deletion, check the response to see which user accounts are deleted."
-					},
-					"response": []
-				},
-				{
-					"name": "Get a User's Blacklist",
-					"request": {
-						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/users/{{test_username1}}/blocks/users",
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {},
-						"description": "Implementation Notes\nGet a user's blacklist."
-					},
-					"response": []
-				},
-				{
-					"name": "Add Contact(s) to User Blacklist",
-					"request": {
-						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/users/{{test_username1}}/blocks/users",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"usernames\": [\n    \"orange\"\n  ]\n}"
-						},
-						"description": "Implementation Notes\nBlock one or multiple contacts by adding to user's blacklist. Blocked contacts cannot send message."
-					},
-					"response": []
-				},
-				{
-					"name": "Remove Contact(s) from Blacklist",
-					"request": {
-						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/users/{{test_username1}}/blocks/users/{{test_username2}}",
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"usernames\": [\n    \"orange\"\n  ]\n}"
-						},
-						"description": "Implementation Notes\nUnblock one or multiple contacts by removing them from user's blacklist. Max 60 contacts at a time."
-					},
-					"response": []
-				},
-				{
-					"name": "Get a List of Contacts",
-					"request": {
-						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/users/{{test_username1}}/contacts/users",
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {},
-						"description": "Implementation Notes\nGet a user's contact list"
-					},
-					"response": []
-				},
-				{
-					"name": "Add a Contact for User",
-					"request": {
-						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/users/{{test_username1}}/contacts/users/{{test_username2}}",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {},
-						"description": "Implementation Notes\nAdd a contact for user. The contact to be added must be under the same application as the user."
-					},
-					"response": []
-				},
-				{
-					"name": "Remove a Contact for User",
-					"request": {
-						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/users/{{test_username1}}/contacts/users/{{test_username2}}",
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
 						"body": {
 							"mode": "raw",
 							"raw": ""
 						},
-						"description": "Implementation Notes\nRemove a contact from the user's contact list."
-					},
-					"response": []
-				},
-				{
-					"name": "Get Offline Message Count",
-					"request": {
-						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/users/{{test_username1}}/offline_msg_count",
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {},
-						"description": "Implementation Notes\nGet the number of offline messages."
-					},
-					"response": []
-				},
-				{
-					"name": "Get a User",
-					"request": {
-						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/users/{{test_username1}}",
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Update User's APNs Display Name",
-					"request": {
-						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/{{test_username1}}",
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"nickname\": \"best apple\"\n}"
-						},
-						"description": "Implementation Notes\nUpdate user's APNs display name for iOS push notification."
-					},
-					"response": []
-				},
-				{
-					"name": "Delete a User",
-					"request": {
-						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/users/{{test_username1}}",
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {},
-						"description": "Implementation Notes\nWarning: Delete a user will also delete the group and chat room if the specified user is the admin of the group and chat room."
-					},
-					"response": []
-				},
-				{
-					"name": "Activate User Account",
-					"request": {
-						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/users/{{test_username1}}/activate",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {},
-						"description": "Implementation Notes\nActivate a deactivated user account."
-					},
-					"response": []
-				},
-				{
-					"name": "Deactivate User Account",
-					"request": {
-						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/users/{{test_username1}}/deactivate",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {},
-						"description": "Implementation Notes\nDeactivate a user account. User will not be able to login."
-					},
-					"response": []
-				},
-				{
-					"name": "Logout User",
-					"request": {
-						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/users/{{test_username1}}/disconnect",
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {},
-						"description": "Implementation Notes\nForce logout a user"
-					},
-					"response": []
-				},
-				{
-					"name": "Get a List of Groups of User Currently Joined",
-					"request": {
-						"url": "http://api.hyphenate.io/{{org_name}}/{{app_name}}/users/{{test_username1}}/joined_chatgroups",
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Get a List of Chat Rooms of User Currently Joined",
-					"request": {
-						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/users/{{test_username1}}/joined_chatrooms",
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Get Undelivered Message Status",
-					"request": {
-						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/users/{{test_username1}}/offline_msg_status/{{messageID}}",
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {},
-						"description": "Get Undelivered message status via message ID."
-					},
-					"response": []
-				},
-				{
-					"name": "Get User Online Status",
-					"request": {
-						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/users/{{test_username1}}/status",
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Reset User's Password",
-					"request": {
-						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/users/{{test_username1}}/password",
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"newpassword\": 654321\n}"
-						},
-						"description": "To enhance security, we recommend update user's Hyphenate IM user account password if the user's app password on developer server is updated."
-					},
-					"response": []
-				},
-				{
-					"name": "Create a User",
-					"request": {
-						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/users",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "[\n  {\n    \"username\": \"apple\",\n    \"password\": 123456\n  }\n]"
-						},
-						"description": "Register a user account respects to org and app keys.\nNote: There're 2 types of registration, open and authorized. open registration does not require admin authentication, but authorized does.\nSee the application -> \"overview\" -> \"User Registration Permission\" in Hyphenate console. Authorized registration is recommended, which prevents malicious attempt to create junk user account from the ones obtained the URL."
+						"description": "Delete total number of N user accounts in batch. Recommend set N range 100~500 at a time to ensure the performance. Cannot specified user account in deletion, check the response to see which user accounts are deleted."
 					},
 					"response": []
 				}
@@ -594,7 +639,7 @@
 			"description": "",
 			"item": [
 				{
-					"name": "Send a Message",
+					"name": "Send Messages",
 					"request": {
 						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/messages",
 						"method": "POST",
@@ -621,11 +666,99 @@
 			]
 		},
 		{
+			"name": "Upload and Download Files",
+			"description": "",
+			"item": [
+				{
+					"name": "Download a File",
+					"request": {
+						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/chatfiles/{{uuid}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "share-secret",
+								"value": "{{share-secret}}",
+								"description": ""
+							},
+							{
+								"key": "thumbnail",
+								"value": "{{thumbnail-boolean}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "Important:\n1. Include the share-secret from HTTP header \n2. Include uuid from the response of a successful file uploading, which is the file identifier\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Upload a File",
+					"request": {
+						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/chatfiles",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "restrict-access",
+								"value": "{{restrict-access-boolean}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "1-jT2ngEIaVJhWoLxecKbkug.jpeg",
+									"value": ""
+								}
+							]
+						},
+						"description": "Warning: File cannot be over 10MB, otherwise will fail.\nImportant: Be sure keep the \"uuid\" and \"share-secret\", which are requirement when downloading particular file."
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Chat History",
 			"description": "",
 			"item": [
 				{
-					"name": "Chat History",
+					"name": "Get Chat History",
 					"request": {
 						"url": {
 							"raw": "https://{{baseURL}}/{{org_name}}/{{app_name}}/chatmessages?ql=select%2B*%2Bwhere%2Btimestamp%3E1499800129000&limit=30&cursor=0",
@@ -673,7 +806,10 @@
 								"description": ""
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": "Get Unix time https://www.epochconverter.com/"
 					},
 					"response": []
@@ -684,28 +820,6 @@
 			"name": "Chat Groups",
 			"description": "",
 			"item": [
-				{
-					"name": "Get All the Groups",
-					"request": {
-						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/chatgroups",
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {},
-						"description": ""
-					},
-					"response": []
-				},
 				{
 					"name": "Create a Group",
 					"request": {
@@ -732,7 +846,57 @@
 					"response": []
 				},
 				{
-					"name": "Get Group(s) Details",
+					"name": "Get List of Groups",
+					"request": {
+						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/chatgroups",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Change Group Owner",
+					"request": {
+						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/chatgroups/{{group_id}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"newowner\": \"berry\"\n}"
+						},
+						"description": "Transfer group ownership by changing owner. "
+					},
+					"response": []
+				},
+				{
+					"name": "Get Group Information",
 					"request": {
 						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/chatgroups/{{group_id}}",
 						"method": "GET",
@@ -748,13 +912,16 @@
 								"description": ""
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": ""
 					},
 					"response": []
 				},
 				{
-					"name": "Update Group Details",
+					"name": "Modify Group Information",
 					"request": {
 						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/chatgroups/{{group_id}}",
 						"method": "PUT",
@@ -775,6 +942,106 @@
 							"raw": "{\n  \"groupname\": \"group name changed\",\n  \"description\": \"still the same test group\",\n  \"maxusers\": 100\n}"
 						},
 						"description": "The message body only allows groupname, description, and maxusers.\n\nNote: Use '+' to replace space if modifying groupname ​and description. E.g., use \"test+group\" instead of \"test group\".\n\nWarning: If group cannot be found or operation failed, then the response will still return HTTP code 200, but key-value are \"maxusers\"=false, \"groupname\"=false, and \"description\"=false. "
+					},
+					"response": []
+				},
+				{
+					"name": "Add a Group Member",
+					"request": {
+						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/chatgroups/{{group_id}}/users/{{test_username2}}",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add Group Members in Batch",
+					"request": {
+						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/chatgroups/{{group_id}}/users",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "Separate usernames by ','"
+						},
+						"description": "Warning: Add max 60 members once at a time. "
+					},
+					"response": []
+				},
+				{
+					"name": "Get List of Group Members",
+					"request": {
+						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/chatgroups/{{group_id}}/users",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Block a Group Member",
+					"request": {
+						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/chatgroups/{{group_id}}/blocks/users/{{test_username2}}",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "Block a group member by adding the user to the group blacklist. \nBlocked user will receive an event, \"You are kicked out of the group {groupid}\".\nBlocked user will not able to see nor  receive group message. "
 					},
 					"response": []
 				},
@@ -804,6 +1071,56 @@
 					"response": []
 				},
 				{
+					"name": "Get List of Blocked Members",
+					"request": {
+						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/chatgroups/{{group_id}}/blocks/users",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "Get a group's blocked members. Blocked members cannot see nor receive group message."
+					},
+					"response": []
+				},
+				{
+					"name": "Unblock a Group Member",
+					"request": {
+						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/chatgroups/{{group_id}}/blocks/users/{{test_username2}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "Unblock group member by removing the user from group blacklist. "
+					},
+					"response": []
+				},
+				{
 					"name": "Unblock Group Members in Batch",
 					"request": {
 						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/chatgroups/{{group_id}}/blocks/users/{{test_username2}}",
@@ -829,31 +1146,9 @@
 					"response": []
 				},
 				{
-					"name": "Block a Group Member",
+					"name": "Remove a Member from Group",
 					"request": {
-						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/chatgroups/{{group_id}}/blocks/users/{{test_username2}}",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {},
-						"description": "Block a group member by adding the user to the group blacklist. \nBlocked user will receive an event, \"You are kicked out of the group {groupid}\".\nBlocked user will not able to see nor  receive group message. "
-					},
-					"response": []
-				},
-				{
-					"name": "Unblock a Group Member",
-					"request": {
-						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/chatgroups/{{group_id}}/blocks/users/{{test_username2}}",
+						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/chatgroups/{{group_id}}/users/{{test_username2}}",
 						"method": "DELETE",
 						"header": [
 							{
@@ -867,38 +1162,19 @@
 								"description": ""
 							}
 						],
-						"body": {},
-						"description": "Unblock group member by removing the user from group blacklist. "
-					},
-					"response": []
-				},
-				{
-					"name": "Get a List of Members of Group",
-					"request": {
-						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/chatgroups/{{group_id}}/users",
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": ""
 					},
 					"response": []
 				},
 				{
-					"name": "Get Blocked Members",
+					"name": "Remove Group Members in Batch",
 					"request": {
-						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/chatgroups/{{group_id}}/blocks/users",
-						"method": "GET",
+						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/chatgroups/{{group_id}}/users/{{test_username2}}",
+						"method": "DELETE",
 						"header": [
 							{
 								"key": "Authorization",
@@ -911,8 +1187,11 @@
 								"description": ""
 							}
 						],
-						"body": {},
-						"description": "Get a group's blocked members. Blocked members cannot see nor receive group message."
+						"body": {
+							"mode": "raw",
+							"raw": "Separate usernames by ','"
+						},
+						"description": ""
 					},
 					"response": []
 				},
@@ -933,127 +1212,11 @@
 								"description": ""
 							}
 						],
-						"body": {},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Add Multiple Members to Group",
-					"request": {
-						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/chatgroups/{{group_id}}/users",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
 						"body": {
 							"mode": "raw",
-							"raw": "Separate usernames by ','"
-						},
-						"description": "Warning: Add max 60 members once at a time. "
-					},
-					"response": []
-				},
-				{
-					"name": "Remove multiple Member from the Group",
-					"request": {
-						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/chatgroups/{{group_id}}/users/{{test_username2}}",
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "Separate usernames by ','"
+							"raw": ""
 						},
 						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Add a Member to Group",
-					"request": {
-						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/chatgroups/{{group_id}}/users/{{test_username2}}",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Remove a Member from the Group",
-					"request": {
-						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/chatgroups/{{group_id}}/users/{{test_username2}}",
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Update Group Owner",
-					"request": {
-						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/chatgroups/{{group_id}}",
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"newowner\": \"berry\"\n}"
-						},
-						"description": "Transfer group ownership by changing owner. "
 					},
 					"response": []
 				}
@@ -1089,7 +1252,7 @@
 					"response": []
 				},
 				{
-					"name": "Get All the Chat Rooms",
+					"name": "Get List of Chat Rooms",
 					"request": {
 						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/chatrooms",
 						"method": "GET",
@@ -1105,13 +1268,16 @@
 								"description": ""
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": ""
 					},
 					"response": []
 				},
 				{
-					"name": "Get Chat Room Details",
+					"name": "Get Chat Room Information",
 					"request": {
 						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/chatrooms/{{chatroom_id}}",
 						"method": "GET",
@@ -1127,13 +1293,16 @@
 								"description": ""
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": ""
 					},
 					"response": []
 				},
 				{
-					"name": "Update Chat Room Details",
+					"name": "Update Chat Room Information",
 					"request": {
 						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/chatrooms/{{chatroom_id}}",
 						"method": "PUT",
@@ -1152,6 +1321,31 @@
 						"body": {
 							"mode": "raw",
 							"raw": "{\n  \"groupname\": \"Best+Berries\",\n  \"description\": \"This+is+for+Berries+Only\",\n  \"maxusers\": 200,\n  \"newowner\": \"berry\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add a Chat Room Member",
+					"request": {
+						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/chatrooms/{{chatroom_id}}/users/{{test_username2}}",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
 						},
 						"description": ""
 					},
@@ -1183,6 +1377,31 @@
 					"response": []
 				},
 				{
+					"name": "Remove a Chat Room Member",
+					"request": {
+						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/chatrooms/{{chatroom_id}}/users/{{test_username2}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
 					"name": "Remove Chat Room Members in Batch",
 					"request": {
 						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/chatrooms/{{chatroom_id}}/users/{{test_username2}}",
@@ -1199,7 +1418,10 @@
 								"description": ""
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"description": ""
 					},
 					"response": []
@@ -1221,136 +1443,11 @@
 								"description": ""
 							}
 						],
-						"body": {},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Add a Chat Room Member",
-					"request": {
-						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/chatrooms/{{chatroom_id}}/users/{{test_username2}}",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Remove a Chat Room Member",
-					"request": {
-						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/chatrooms/{{chatroom_id}}/users/{{test_username2}}",
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {},
-						"description": ""
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Upload and Download Files",
-			"description": "",
-			"item": [
-				{
-					"name": "Download a File",
-					"request": {
-						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/chatfiles/{{uuid}}",
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							},
-							{
-								"key": "share-secret",
-								"value": "{{share-secret}}",
-								"description": ""
-							},
-							{
-								"key": "thumbnail",
-								"value": "{{thumbnail-boolean}}",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "multipart/form-data",
-								"description": ""
-							}
-						],
-						"body": {},
-						"description": "Important:\n1. Include the share-secret from HTTP header \n2. Include uuid from the response of a successful file uploading, which is the file identifier\n"
-					},
-					"response": []
-				},
-				{
-					"name": "Upload a File",
-					"request": {
-						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/chatfiles",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							},
-							{
-								"key": "restrict-access",
-								"value": "{{restrict-access-boolean}}",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/x-www-form-urlencoded",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "file",
-									"type": "file",
-									"src": "1-jT2ngEIaVJhWoLxecKbkug.jpeg"
-								}
-							]
+							"mode": "raw",
+							"raw": ""
 						},
-						"description": "Warning: File cannot be over 10MB, otherwise will fail.\nImportant: Be sure keep the \"uuid\" and \"share-secret\", which are requirement when downloading particular file."
+						"description": ""
 					},
 					"response": []
 				}
