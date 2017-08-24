@@ -8,7 +8,7 @@ info:
     `org_ID` is the unique ID of the organization created when you first registered [Hyphenate console](https://console.hyphenate.io/).                         
     `app_name` is the unique app ID created when you new application in [Hyphenate console](https://console.hyphenate.io/).           
     `Authorization token` is required for most API requests as part of requesting header in the format `Bearer ${token}`. You can obtain the token via [/{org_name}/{app_name}/token](https://docs.hyphenate.io/docs/server-overview#section-request-authentication-token).                                            
-  version: 1.0.3
+  version: "1.0.0"
   title: Hyphenate REST APIs
 host: api.hyphenate.io
 basePath: /
@@ -154,7 +154,7 @@ paths:
     get:
       tags:
         - Groups
-      summary: Get All the Groups
+      summary: Get List of Groups
       description: ''
       schemes:
         - https
@@ -253,7 +253,7 @@ paths:
     get:
       tags:
         - Groups
-      summary: Get Group(s) Details
+      summary: Get Group(s) Information
       description: ''
       schemes:
         - https
@@ -301,7 +301,7 @@ paths:
     put:
       tags:
         - Groups
-      summary: Update Group Details
+      summary: Modify Group Information
       description: |-
         * The message body allows change of `groupname`, `description`, `maxusers`, and `newowner`.
         * **Note:** Use '+' to replace space if modifying groupname and description. E.g., use "test+group" instead of "test group".
@@ -401,7 +401,7 @@ paths:
     get:
       tags:
         - Groups
-      summary: Get Blocked Members
+      summary: Get List of Blocked Members
       description: Get a group's blacklist of blocked members. Blocked members cannot see nor receive group message.
       schemes:
         - https
@@ -676,7 +676,7 @@ paths:
     get:
       tags:
         - Groups
-      summary: Get a List of Group Members
+      summary: Get List of Group Members
       description: ''
       schemes:
         - https
@@ -832,7 +832,7 @@ paths:
     post:
       tags:
         - Groups
-      summary: Add a Member to Group
+      summary: Add a Group Member
       description: ''
       schemes:
         - https
@@ -888,7 +888,7 @@ paths:
     delete:
       tags:
         - Groups
-      summary: Remove a Member from the Group
+      summary: Remove a Group Member
       description: ''
       schemes:
         - https
@@ -945,7 +945,7 @@ paths:
     get:
       tags:
         - Chat History
-      summary: Get Message History
+      summary: Get Chat History
       description: |-
         * **This API does NOT support real time message history fetching. Please see Webhooks for real time message pushing to your server from Hyphenate directly.** 
         * This API will respond with a URL to download message history file. The link is valid for 30 mins. Please allow some time to generate the message history file before calling the API. 
@@ -997,7 +997,7 @@ paths:
     get:
       tags:
         - Chat Rooms
-      summary: Get All the Chat Rooms
+      summary: Get List of Chat Rooms
       description: ''
       schemes:
         - https
@@ -1080,7 +1080,7 @@ paths:
     get:
       tags:
         - Chat Rooms
-      summary: Get Chat Room Details
+      summary: Get Chat Room Information
       description: ''
       schemes:
         - https
@@ -1127,7 +1127,7 @@ paths:
     put:
       tags:
         - Chat Rooms
-      summary: Update Chat Room Details
+      summary: Modify Chat Room Information
       description: ''
       schemes:
         - https
@@ -1683,8 +1683,8 @@ paths:
     get:
       tags:
         - Users
-      summary: Get a User's Blacklist
-      description: Get a user's blacklist.
+      summary: Get User's Blacklist
+      description: Get user's blacklist.
       schemes:
         - https
       consumes:
@@ -1786,7 +1786,7 @@ paths:
     delete:
       tags:
         - Users
-      summary: Remove Contacts from Blacklist
+      summary: Unblock Contact(s)
       description: Unblock one or multiple contacts by removing them from user's blacklist. **Max 60** contacts at a time. 
       schemes:
         - https
@@ -1841,8 +1841,8 @@ paths:
     get:
       tags:
         - Users
-      summary: Get a List of Contacts.
-      description: Get a user's contact list
+      summary: Get User's Contact list
+      description: Get user's contact list
       schemes:
         - https
       consumes:
@@ -1889,7 +1889,7 @@ paths:
     post:
       tags:
         - Users
-      summary: Add a Contact for User
+      summary: Add a Contact to User
       description: Add a contact for user. The contact to be added must be under the same application as the user.
       schemes:
         - https
@@ -1943,7 +1943,7 @@ paths:
     delete:
       tags:
         - Users
-      summary: Remove a Contact for User
+      summary: Remove a Contact from User
       description: Remove a contact from the user's contact list.
       schemes:
         - https
@@ -2093,7 +2093,7 @@ paths:
     put:
       tags:
         - Users
-      summary: Update User's APNs Display Name
+      summary: Update Push Display Name
       description: Update user's APNs display name for iOS push notification.
       schemes:
         - https
@@ -2194,7 +2194,7 @@ paths:
     post:
       tags:
         - Users
-      summary: Activate User Account
+      summary: Activate User
       description: 'Activate a deactivated user account.'
       schemes:
         - https
@@ -2242,7 +2242,7 @@ paths:
     post:
       tags:
         - Users
-      summary: Deactivate User Account
+      summary: Deactivate User
       description: 'Deactivate a user account. User will not be able to login. '
       schemes:
         - https
@@ -2336,7 +2336,7 @@ paths:
     get:
       tags:
         - Users
-      summary: Get a List of Groups User Currently Joined
+      summary: Get List of Joined Chat Groups
       description: ''
       schemes:
         - https
@@ -2384,7 +2384,7 @@ paths:
     get:
       tags:
         - Users
-      summary: Get a List of Chat Rooms User Currently Joined
+      summary: Get List of Joined Chat Rooms
       description: ''
       schemes:
         - https
@@ -2487,8 +2487,8 @@ paths:
     put:
       tags:
         - Users
-      summary: Reset User's Password
-      description: 'To enhance security, we recommend update user''s Hyphenate IM user account password if the user''s app password on developer server is updated.'
+      summary: Reset User Password
+      description: 'To enhance security, we recommend update user''s Hyphenate user account password if the user''s app password on developer server is updated.'
       schemes:
         - https
       consumes:

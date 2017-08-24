@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "Hyphenate APIs",
-		"_postman_id": "477181ba-a85a-cd09-1aae-6b90d026e9a2",
+		"_postman_id": "4a0d8285-bf76-5967-f1cc-49c156026254",
 		"description": "You can leverage this REST API interfaces for testing. For more details about server implementation, request rate limitation, etc, please visit [Hyphenate Server Integration](https://docs.hyphenate.io/docs/server-overview). \n\n**Note:**\n\n`org_ID` is the unique ID of the organization created when you first registered [Hyphenate console](https://console.hyphenate.io/).                         \n`app_name` is the unique app ID created when you new application in [Hyphenate console](https://console.hyphenate.io/).           \n`Authorization token` is required for most API requests as part of requesting header in the format `Bearer ${token}`. You can obtain the token via [/{org_name}/{app_name}/token](https://docs.hyphenate.io/docs/server-overview#section-request-authentication-token).",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -81,7 +81,83 @@
 					"response": []
 				},
 				{
-					"name": "Add a Contact for User",
+					"name": "Get a User",
+					"request": {
+						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/users/{{test_username1}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get Users in Batch",
+					"request": {
+						"url": {
+							"raw": "https://{{baseURL}}/{{org_name}}/{{app_name}}/users?limit={{limit}}&cursor={{cursor}}",
+							"protocol": "https",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"{{org_name}}",
+								"{{app_name}}",
+								"users"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "{{limit}}",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "cursor",
+									"value": "{{cursor}}",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "Implementation Notes\nGet a list of users."
+					},
+					"response": []
+				},
+				{
+					"name": "Add a Contact to User",
 					"request": {
 						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/users/{{test_username1}}/contacts/users/{{test_username2}}",
 						"method": "POST",
@@ -331,82 +407,6 @@
 					"response": []
 				},
 				{
-					"name": "Get a User",
-					"request": {
-						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/users/{{test_username1}}",
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "Get Users in Batch",
-					"request": {
-						"url": {
-							"raw": "https://{{baseURL}}/{{org_name}}/{{app_name}}/users?limit={{limit}}&cursor={{cursor}}",
-							"protocol": "https",
-							"host": [
-								"{{baseURL}}"
-							],
-							"path": [
-								"{{org_name}}",
-								"{{app_name}}",
-								"users"
-							],
-							"query": [
-								{
-									"key": "limit",
-									"value": "{{limit}}",
-									"equals": true,
-									"description": ""
-								},
-								{
-									"key": "cursor",
-									"value": "{{cursor}}",
-									"equals": true,
-									"description": ""
-								}
-							],
-							"variable": []
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"description": "Implementation Notes\nGet a list of users."
-					},
-					"response": []
-				},
-				{
 					"name": "Update Push Display Name",
 					"request": {
 						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/{{test_username1}}",
@@ -432,7 +432,7 @@
 					"response": []
 				},
 				{
-					"name": "Reset Password",
+					"name": "Reset User Password",
 					"request": {
 						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/users/{{test_username1}}/password",
 						"method": "PUT",
@@ -896,7 +896,7 @@
 					"response": []
 				},
 				{
-					"name": "Get Group Information",
+					"name": "Get Group(s) Information",
 					"request": {
 						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/chatgroups/{{group_id}}",
 						"method": "GET",
@@ -1146,7 +1146,7 @@
 					"response": []
 				},
 				{
-					"name": "Remove a Member from Group",
+					"name": "Remove a Group Member",
 					"request": {
 						"url": "https://{{baseURL}}/{{org_name}}/{{app_name}}/chatgroups/{{group_id}}/users/{{test_username2}}",
 						"method": "DELETE",
